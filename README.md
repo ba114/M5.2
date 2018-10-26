@@ -4,7 +4,6 @@ This is the development repository for identifying new maps in the Bosch M5.2.1 
 This repository will only be focussing on:
 
 ECU: 0261203667
-
 SW: 40
 
 
