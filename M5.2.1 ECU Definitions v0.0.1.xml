@@ -84,15 +84,7 @@ v0
 	<table type="Static Y Axis" name="Convert from Decimal to Binary. Flip bits as needed. Then convert back to Decimal from Binary" sizey="5">
 		<data>Byte</data>
 </table>
-<description>TESTING ONLY - UNCONFIRMED!!! This *could* be used to delete EWS.
-
-These are control bits for various functions. You will have to convert from Decimal to Binary (Windows Calc), flip the bits as needed, then convert it back to Decimal and enter that here.
-
-Bit # is from right to left starting at 0, up to 7. 
-
-Possible Example: EWS Delete (Byte 8 Bit 7)
-Byte 8 = 00010110 (Decimal 60; 3Ch) - (STOCK)
-Byte 8 = 10010110 (Decimal 188; BCh) - (EWS DELETED)
+<description>Unclear on use at this point in time
 </description>
 </table>
   
