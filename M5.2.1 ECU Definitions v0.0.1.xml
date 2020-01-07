@@ -1,0 +1,497 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE roms [
+
+<!ELEMENT roms ( rom+ ) >
+<!ENTITY deg    "&#176;" ><!-- degree sign -->
+<!ENTITY micro  "&#181;" ><!-- micro sign -->
+
+<!ELEMENT rom ( romid, table+ ) >
+<!ATTLIST rom base CDATA #IMPLIED>
+
+<!ELEMENT romid ( xmlid, internalidaddress, internalidstring, caseid?, ecuid, year, market, make, model, submodel, transmission, flashmethod?, memmodel, filesize, obsolete? ) >
+
+<!ELEMENT xmlid (#PCDATA) >
+<!ELEMENT internalidaddress (#PCDATA) >
+<!ELEMENT internalidstring (#PCDATA) >
+<!ELEMENT caseid (#PCDATA) >
+<!ELEMENT ecuid (#PCDATA) >
+<!ELEMENT year (#PCDATA) >
+<!ELEMENT market (#PCDATA) >
+<!ELEMENT make (#PCDATA) >
+<!ELEMENT model (#PCDATA) >
+<!ELEMENT submodel (#PCDATA) >
+<!ELEMENT transmission (#PCDATA) >
+<!ELEMENT flashmethod (#PCDATA) >
+<!ELEMENT memmodel (#PCDATA) >
+<!ELEMENT filesize (#PCDATA) >
+<!ELEMENT obsolete (#PCDATA) >
+
+<!ELEMENT table ( #PCDATA | scaling | table | description | data | state )* >
+<!ATTLIST table
+	type NMTOKENS #IMPLIED
+	name CDATA #IMPLIED
+	category CDATA #IMPLIED
+	storagetype CDATA #IMPLIED
+	endian (little | big) #IMPLIED
+	sizex CDATA #IMPLIED
+	sizey CDATA #IMPLIED
+	userlevel (1 | 2 | 3 | 4 | 5) #IMPLIED
+	logparam CDATA #IMPLIED
+	storageaddress CDATA #IMPLIED >
+
+<!ELEMENT scaling EMPTY >
+<!ATTLIST scaling
+	units CDATA #REQUIRED
+	expression CDATA #REQUIRED
+	to_byte CDATA #REQUIRED
+	format CDATA #REQUIRED
+	fineincrement CDATA #REQUIRED
+	coarseincrement CDATA #REQUIRED >
+
+<!ELEMENT description (#PCDATA) >
+
+<!ELEMENT data (#PCDATA) >
+
+<!ELEMENT state (#PCDATA) >
+<!ATTLIST state
+	name CDATA #REQUIRED
+	data CDATA #REQUIRED >
+]>
+<roms>
+  <rom>
+    <!--
+v0
+	- draft of Bosch M5.2.1
+
+	In this BASE section define all the common table data and axis attributes.
+    Leave out the ROM specific addresses.
+-->
+  <romid>
+   <xmlid>BMWM5.2.1BASE</xmlid>
+   <internalidaddress>0000</internalidaddress>
+   <internalidstring>0000</internalidstring>
+   <ecuid>0000000000</ecuid>
+   <year>1996-2000</year>
+   <market>EURO</market>
+   <make>BMW</make>
+   <model>E36 318is</model>
+   <submodel>M5.2.1</submodel>
+   <transmission>MT/AT</transmission>
+  </romid>
+  
+<table type="2D" name="Configuration Byte" category="Control Bits" storagetype="uint8" endian="little" sizey="1" userlevel="1">
+	<scaling units="Decimal Value" expression="x" to_byte="x"  format="0" fineincrement="1" coarseincrement="10" />
+	<table type="Static Y Axis" name="Convert from Decimal to Binary. Flip bits as needed. Then convert back to Decimal from Binary" sizey="5">
+		<data>Byte</data>
+</table>
+<description>TESTING ONLY - UNCONFIRMED!!! This *could* be used to delete EWS.
+
+These are control bits for various functions. You will have to convert from Decimal to Binary (Windows Calc), flip the bits as needed, then convert it back to Decimal and enter that here.
+
+Bit # is from right to left starting at 0, up to 7. 
+
+Possible Example: EWS Delete (Byte 8 Bit 7)
+Byte 8 = 00010110 (Decimal 60; 3Ch) - (STOCK)
+Byte 8 = 10010110 (Decimal 188; BCh) - (EWS DELETED)
+</description>
+</table>
+  
+   <table type="3D" name="OBD2 Readiness Monitors" category="OBD2 Readiness Monitors" storagetype="uint8" endian="little" userlevel="1" sizey="1" sizex="6" >
+   <scaling units="Decimal" expression="x" to_byte="x" format="00" fineincrement="1" coarseincrement="5" />
+   <table type="Static Y Axis" name="Byte" sizey="1">
+		<data>Decimal</data>
+		<data></data>
+   </table>
+	<table type="Static X Axis" name="Readiness Monitor" sizex="6">
+		<data>Exhaust Gas Recirculation</data>
+		<data>Oxygen Sensor Heater</data>
+		<data>Oxygen Sensor</data>
+		<data>Secondary Air System</data>
+		<data>Evaporative System</data>
+		<data>Catalyst</data>
+	</table>
+		<description>Table for OBD2 Readiness monitors. Requires testing for values to set as ready.</description>
+	</table>
+
+<!-- The below requires the disabled switch to be confirmed. FF, 00 & 01 do not appear to have any effect
+<table type="Switch" name="Exhaust Gas Recirculation" category="OBD2 Readiness Monitors" sizey="1" >
+	<state name="Enabled" data="02" />
+	<state name="Disabled" data="??" />
+</table>
+
+<table type="Switch" name="Oxygen Sensor Heater" category="OBD2 Readiness Monitors" sizey="1" >
+	<state name="Enabled" data="02" />
+	<state name="Disabled" data="??" />
+</table>
+
+<table type="Switch" name="Oxygen Sensor" category="OBD2 Readiness Monitors" sizey="1" >
+	<state name="Enabled" data="02" />
+	<state name="Disabled" data="??" />
+</table>
+
+<table type="Switch" name="Secondary Air System" category="OBD2 Readiness Monitors" sizey="1" >
+	<state name="Enabled" data="02" />
+	<state name="Disabled" data="??" />
+</table>
+
+<table type="Switch" name="Evaporative System" category="OBD2 Readiness Monitors" sizey="1" >
+	<state name="Enabled" data="02" />
+	<state name="Disabled" data="??" />
+</table>
+  
+<table type="Switch" name="Catalyst" category="OBD2 Readiness Monitors" sizey="1" >
+	<state name="Enabled" data="02" />
+	<state name="Disabled" data="??" />
+</table> -->
+
+ 
+  
+   <table type="3D" name="Diagnostic Trouble Codes" category="DTCs" storagetype="uint8" endian="little"  userlevel="1" sizey="76" sizex="2" >
+   <scaling units="Decimal" expression="x" to_byte="x" format="00" fineincrement="1" coarseincrement="5" />
+   <table type="Static X Axis" name="Byte" sizex="2">
+		<data>DTC Number</data>   
+		<data></data>
+   </table>
+	<table type="Static Y Axis" name="DTC" sizey="76">
+		<data>101 DME Internal RAM</data>
+		<data>102 DME Internal RAM</data>
+		<data>39 EWS Immobiliser - Data transfer fault,  Message (Code, Parity) wrong</data>
+		<data>148 EWS Interface - Wire fault DWA/EWS Input (Short circuit or Interruption)</data>
+		<data>124 Intake Air Temperature Signal</data>
+		<data>123 Coolant Temperature Signal</data>
+		<data>112 Camshaft Position Signal</data>
+		<data>111 Crankshaft Position Signal</data>
+		<data>107 DME Relay Voltage Supply</data>
+		<data>222 Knock Control Bank 1</data>
+		<data>210 Knock Sensor 1</data>
+		<data>211 Knock Sensor 2</data>
+		<data>212 Knock Sensor 3</data>
+		<data>213 Knock Sensor 4</data>
+		<data>220 Knock Control</data>
+		<data>108 Voltage Supply B+</data>
+		<data>104 Fault Memory Error</data>
+		<data>40 Cat Efficiency Bank 1</data>
+		<data>45 Cat Efficiency Bank 2</data>
+		<data>16 Lambda Sensor Switching Duty Cycle Pre Cat Bank 1</data>
+		<data>22 Lambda Sensor Switching Duty Cycle Pre Cat Bank 2</data>
+		<data>17 Lambda Sensor Switching Post Cat Bank 1</data>
+		<data>23 Lambda Sensor Switching Post Cat Bank 2</data>
+		<data>15 Lambda Sensor Switching TP Pre Cat Bank 1</data>
+		<data>21 Lambda Sensor Switching TP Pre Cat Bank 2</data>
+		<data>103 DME EPROM</data>
+		<data>13 Lambda Sensor Heater Pre Cat Bank 1</data>
+		<data>14 Lambda Sensor Heater Post Cat Bank 1</data>
+		<data>5 Lambda Sensor Heater Post Cat Bank 2</data>
+		<data>4 Lambda Sensor Heater Pre Cat Bank 2</data>
+		<data>10 Lambda Sensor Pre Cat Bank 1</data>
+		<data>18 Lambda Sensor Pre Cat Bank 2</data>
+		<data>12 Lambda Sensor Post Cat Bank 1</data>
+		<data>36 (IDLE LTFT Bank 2) Additive Mixture Adaptation Idle Bank 2</data>
+		<data>236 CAN Interface EGS Timeout</data>
+		<data>216 CAN Interface DSC Timeout</data>
+		<data>117 TPS Sensor/Switch ‘A’ Circuit</data>
+		<data>120 Vehicle Speed Signal VSS</data>
+		<data>144 Automatic Stability Control ASC Intervention</data>
+		<data>135 Specified Engine Torque - EGS Intervention</data>
+		<data>62 Misfiring in Various Cyls</data>
+		<data>50 Misfire Cyl 1</data>
+		<data>52 Misfire Cyl 3</data>
+		<data>53 Misfire Cyl 4</data>
+		<data>51 Misfire Cyl 2</data>
+		<data>75 (KAT) Misfiring in Various Cyls</data>
+		<data>63 (KAT) Misfiring with Cylinder Cutout Cyl 1</data>
+		<data>65 (KAT) Misfiring with Cylinder Cutout Cyl 3</data>
+		<data>66 (KAT)Misfiring with Cylinder Cutout Cyl 4</data>
+		<data>64 (KAT) Misfiring with Cylinder Cutout Cyl 2</data>
+		<data>93 Tank Venting System Function</data>
+		<data>26 (LTFT) Multiplicative Mixture Adaptation Part Load Bank 1</data>
+		<data>34 (LTFT Bank 2) Multiplicative Mixture Adaptation Part Load Bank 2</data>
+		<data>27 (STFT) Additive Mixture Adaptation Bank 1</data>
+		<data>35 (STFT Bank 2) Additive Mixture Adaptation Bank 2</data>
+		<data>28 (IDLE LTFT) Additive Mixture Adaptation Idle Bank 1</data>
+		<data>36 (IDLE LTFT Bank 2) Additive Mixture Adaptation Idle Bank 2</data>
+		<data>115 Air Flow Meter HFM Signal</data>
+		<data>167 Fuel Pump Relay EKP</data>
+		<data>165 “CHECK ENGINE” Warning Lamp</data>
+		<data>98 Activation Tank Venting Valve</data>
+		<data>170 AirCon Compressor Control</data>
+		<data>151 Fuel Injector Cyl 2</data>
+		<data>153 Fuel Injector Cyl 4</data>
+		<data>152 Fuel Injector Cyl 3</data>
+		<data>150 Fuel Injector Cyl 1</data>
+		<data>175 DISA Control Circuit Electrical</data>
+		<data>169 Idle Speed Control Valve - Closing</data>
+		<data>253 Coolant Fan Final Stage</data>
+		<data>168 Idle Speed Control Valve - Opening</data>
+		<data>78 Crankshaft Sensor</data>
+		<data>255 Unused Output A</data>
+		<data>255 Unused Output B</data>
+		<data>24 Air Conditioning Compressor Function</data>
+		<data>8 Misfire from Low Fuel</data>
+		<data>121 Air Flow Meter HFM Load Measurement</data>
+	</table>
+<description>Table for DTCs.
+Setting to FF appears to disable the DTC</description>
+</table>
+
+
+<table type="3D" name="Malfunction Illumination Lamp" category="MIL" storagetype="uint8" endian="little"  userlevel="1" sizey="76" sizex="1" >
+   <scaling units="Decimal" expression="x" to_byte="x" format="00" fineincrement="1" coarseincrement="5" />
+   <table type="Static X Axis" name="Byte" sizex="1">
+		<data>MIL</data>   
+		<data></data>
+   </table>
+	<table type="Static Y Axis" name="DTC" sizey="76">
+		<data>MIL - 101 DME Internal RAM</data>
+		<data>MIL - 102 DME Internal RAM</data>
+		<data>MIL - 39 EWS Immobiliser - Data transfer fault,  Message (Code, Parity) wrong</data>
+		<data>MIL - 148 EWS Interface - Wire fault DWA/EWS Input (Short circuit or Interruption)</data>
+		<data>MIL - 124 Intake Air Temperature Signal</data>
+		<data>MIL - 123 Coolant Temperature Signal</data>
+		<data>MIL - 112 Camshaft Position Signal</data>
+		<data>MIL - 111 Crankshaft Position Signal</data>
+		<data>MIL - 107 DME Relay Voltage Supply</data>
+		<data>MIL - 222 Knock Control Bank 1</data>
+		<data>MIL - 210 Knock Sensor 1</data>
+		<data>MIL - 211 Knock Sensor 2</data>
+		<data>MIL - 212 Knock Sensor 3</data>
+		<data>MIL - 213 Knock Sensor 4</data>
+		<data>MIL - 220 Knock Control</data>
+		<data>MIL - 108 Voltage Supply B+</data>
+		<data>MIL - 104 Fault Memory Error</data>
+		<data>MIL - 40 Cat Efficiency Bank 1</data>
+		<data>MIL - 45 Cat Efficiency Bank 2</data>
+		<data>MIL - 16 Lambda Sensor Switching Duty Cycle Pre Cat Bank 1</data>
+		<data>MIL - 22 Lambda Sensor Switching Duty Cycle Pre Cat Bank 2</data>
+		<data>MIL - 17 Lambda Sensor Switching Post Cat Bank 1</data>
+		<data>MIL - 23 Lambda Sensor Switching Post Cat Bank 2</data>
+		<data>MIL - 15 Lambda Sensor Switching TP Pre Cat Bank 1</data>
+		<data>MIL - 21 Lambda Sensor Switching TP Pre Cat Bank 2</data>
+		<data>MIL - 103 DME EPROM</data>
+		<data>MIL - 13 Lambda Sensor Heater Pre Cat Bank 1</data>
+		<data>MIL - 14 Lambda Sensor Heater Post Cat Bank 1</data>
+		<data>MIL - 5 Lambda Sensor Heater Post Cat Bank 2</data>
+		<data>MIL - 4 Lambda Sensor Heater Pre Cat Bank 2</data>
+		<data>MIL - 10 Lambda Sensor Pre Cat Bank 1</data>
+		<data>MIL - 18 Lambda Sensor Pre Cat Bank 2</data>
+		<data>MIL - 12 Lambda Sensor Post Cat Bank 1</data>
+		<data>MIL - 36 (IDLE LTFT Bank 2) Additive Mixture Adaptation Idle Bank 2</data>
+		<data>MIL - 236 CAN Interface EGS Timeout</data>
+		<data>MIL - 216 CAN Interface DSC Timeout</data>
+		<data>MIL - 117 TPS Sensor/Switch ‘A’ Circuit</data>
+		<data>MIL - 120 Vehicle Speed Signal VSS</data>
+		<data>MIL - 144 Automatic Stability Control ASC Intervention</data>
+		<data>MIL - 135 Specified Engine Torque - EGS Intervention</data>
+		<data>MIL - 62 Misfiring in Various Cyls</data>
+		<data>MIL - 50 Misfire Cyl 1</data>
+		<data>MIL - 52 Misfire Cyl 3</data>
+		<data>MIL - 53 Misfire Cyl 4</data>
+		<data>MIL - 51 Misfire Cyl 2</data>
+		<data>MIL - 75 (KAT) Misfiring in Various Cyls</data>
+		<data>MIL - 63 (KAT) Misfiring with Cylinder Cutout Cyl 1</data>
+		<data>MIL - 65 (KAT) Misfiring with Cylinder Cutout Cyl 3</data>
+		<data>MIL - 66 (KAT)Misfiring with Cylinder Cutout Cyl 4</data>
+		<data>MIL - 64 (KAT) Misfiring with Cylinder Cutout Cyl 2</data>
+		<data>MIL - 93 Tank Venting System Function</data>
+		<data>MIL - 26 (LTFT) Multiplicative Mixture Adaptation Part Load Bank 1</data>
+		<data>MIL - 34 (LTFT Bank 2) Multiplicative Mixture Adaptation Part Load Bank 2</data>
+		<data>MIL - 27 (STFT) Additive Mixture Adaptation Bank 1</data>
+		<data>MIL - 35 (STFT Bank 2) Additive Mixture Adaptation Bank 2</data>
+		<data>MIL - 28 (IDLE LTFT) Additive Mixture Adaptation Idle Bank 1</data>
+		<data>MIL - 36 (IDLE LTFT Bank 2) Additive Mixture Adaptation Idle Bank 2</data>
+		<data>MIL - 115 Air Flow Meter HFM Signal</data>
+		<data>MIL - 167 Fuel Pump Relay EKP</data>
+		<data>MIL - 165 “CHECK ENGINE” Warning Lamp</data>
+		<data>MIL - 98 Activation Tank Venting Valve</data>
+		<data>MIL - 170 AirCon Compressor Control</data>
+		<data>MIL - 151 Fuel Injector Cyl 2</data>
+		<data>MIL - 153 Fuel Injector Cyl 4</data>
+		<data>MIL - 152 Fuel Injector Cyl 3</data>
+		<data>MIL - 150 Fuel Injector Cyl 1</data>
+		<data>MIL - 175 DISA Control Circuit Electrical</data>
+		<data>MIL - 169 Idle Speed Control Valve - Closing</data>
+		<data>MIL - 253 Coolant Fan Final Stage</data>
+		<data>MIL - 168 Idle Speed Control Valve - Opening</data>
+		<data>MIL - 78 Crankshaft Sensor</data>
+		<data>MIL - 255 Unused Output A</data>
+		<data>MIL - 255 Unused Output B</data>
+		<data>MIL - 24 Air Conditioning Compressor Function</data>
+		<data>MIL - 8 Misfire from Low Fuel</data>
+		<data>MIL - 121 Air Flow Meter HFM Load Measurement</data>
+	</table>
+	<description>Table for MIL. Setting to 00 appears to disable the MIL.</description>
+</table>
+
+<table type="3D" name="Ignition Timing - Optimal" category="Ignition Timing" storagetype="uint8" endian="little" sizex="12" sizey="16" userlevel="1" >
+	<scaling units="&deg;BTDC" expression="(x*.75)-48" to_byte="(x+48)/0.75" format="0.00" fineincrement=".1" coarseincrement="1" />
+	<table type="X Axis" name="relative filling" storagetype="uint8" endian="little" logparam="E2" >
+		<scaling units="ms" expression="x*.05" to_byte="x/.05" format="#" fineincrement="1" coarseincrement="10" />
+	</table>
+	<table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="little" logparam="P8">
+		<scaling units="RPM" expression="x*40" to_byte="x/40" format="#" fineincrement="50" coarseincrement="100" />
+	</table>
+	<description>This is the optimal ignition timing map.</description>
+</table>
+
+<table type="3D" name="Ignition Timing - Warm Engine" category="Ignition Timing" storagetype="uint8" endian="little" sizex="12" sizey="16" userlevel="1" >
+	<scaling units="&deg;BTDC" expression="(x*.75)-45" to_byte="(x+45)/0.75" format="0.00" fineincrement=".1" coarseincrement="1" />
+	<table type="X Axis" name="relative filling" storagetype="uint8" endian="little" logparam="E2" >
+		<scaling units="ms" expression="x*.05" to_byte="x/.05" format="#" fineincrement="1" coarseincrement="10" />
+	</table>
+	<table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="little" logparam="P8">
+		<scaling units="RPM" expression="x*40" to_byte="x/40" format="#" fineincrement="50" coarseincrement="100" />
+	</table>
+	<description>This is the ignition timing map when the engine has reached operating temp.</description>
+</table>
+
+<table type="2D" name="Injector Dead Time" category="Fuel" storagetype="uint8" endian="little" sizey="5" userlevel="1">
+	<scaling units="Decimal Value" expression="x*0.012000" to_byte="x/0.012000"  format="0.000" fineincrement="0.001" coarseincrement="0.1" />
+	<table type="Static Y Axis" name="Volts" sizey="5">
+		<data>7.07</data>		
+		<data>9.53</data>		
+		<data>11.98</data>		
+		<data>14.05</data>		
+		<data>16.03</data>
+	</table>
+	<description>Injector Dead Time settings</description>
+</table>
+
+	<table type="2D" name="RPM limiter" category="Limiters" storagetype="uint16" endian="little" sizey="1" userlevel="1">
+		<scaling units="RPM" expression="x*0.25" to_byte="x/0.25"  format="0" fineincrement="50" coarseincrement="100" />
+			<table type="Static Y Axis" name="RPM" sizey="1">
+				<data>RPM Limit</data>
+			</table>
+		<description>Rev Limiter</description>
+	</table>
+
+	<table type="2D" name="RPM limiter (VSS Error)" category="Limiters" storagetype="uint16" endian="little" sizey="1" userlevel="1">
+		<scaling units="RPM" expression="x*0.25" to_byte="x/0.25"  format="0" fineincrement="50" coarseincrement="100" />
+			<table type="Static Y Axis" name="RPM" sizey="1">
+				<data>RPM Limit</data>
+			</table>
+		<description>Rev Limiter when no speed input detected</description>
+	</table>
+
+<table type="3D" name="MAF Scaling" category="Sensors Scaling" storagetype="uint16" endian="little" sizex="16" sizey="16" userlevel="2" >
+   <scaling units="kg/hr" expression="x*.015625" to_byte="x/.015625"  format="0.00" fineincrement=".01" coarseincrement=".1" />
+   <table type="Static X Axis" name="0 to 5 Volts - " sizey="16">
+<data></data>
+   </table>
+   <table type="Static Y Axis" name="0 to 5 Volts" sizey="16">
+<data></data>
+   </table>
+   <description>This is the scaling for the MAF sensor just in a convenient 16x16 format for easier editing. 
+   </description>
+  </table>
+
+  <table type="3D" name="Engine torque with optimal ignition angle" category="Torque" storagetype="uint8" endian="little" sizex="12" sizey="16" userlevel="1" >
+	<scaling units="Nm" expression="x*2" to_byte="x/2" format="0.00" fineincrement=".1" coarseincrement="1" />
+	<table type="X Axis" name="relative filling" storagetype="uint8" endian="little" logparam="E2" >
+		<scaling units="ms" expression="x*.05" to_byte="x/.05" format="#" fineincrement="1" coarseincrement="10" />
+	</table>
+	<table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="little" logparam="P8">
+		<scaling units="RPM" expression="x*40" to_byte="x/40" format="#" fineincrement="50" coarseincrement="100" />
+	</table>
+	<description>Indicated engine torque</description>
+</table>
+  
+  <table type="2D" name="Maximum Knock Retard" category="Knock" storagetype="uint8" endian="little" sizey="10" userlevel="1">
+	<scaling units="&deg;BTDC" expression="x*-0.750000" to_byte="x/-0.750000"  format="0.000" fineincrement="0.001" coarseincrement="0.1" />
+	<table type="Static Y Axis" name="Volts" sizey="10">
+		<data>720</data>		
+		<data>1360</data>		
+		<data>1600</data>		
+		<data>2480</data>		
+		<data>3600</data>
+		<data>4000</data>		
+		<data>4600</data>		
+		<data>5200</data>		
+		<data>6000</data>		
+		<data>6400</data>
+	</table>
+	<description>Maximum amount of ignition retard when knock is experienced</description>
+</table>
+
+  <table type="3D" name="Knock Detection Factor" category="Knock" storagetype="uint8" endian="little" sizex="4" sizey="16" userlevel="1" >
+	<scaling units="Nm" expression="x*0.015625" to_byte="x/0.015625" format="0.00" fineincrement=".1" coarseincrement="1" />
+		<table type="Static X Axis" name="Cylinder" sizex="4">
+		<data>Cylinder 1</data>		
+		<data>Cylinder 2</data>		
+		<data>Cylinder 3</data>		
+		<data>Cylinder 4</data>
+	</table>
+	<table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="little" logparam="P8">
+		<scaling units="RPM" expression="x*40" to_byte="x/40" format="#" fineincrement="50" coarseincrement="100" />
+	</table>
+	<description>Knock detection factor per cylinder</description>
+</table>
+
+
+
+ </rom>
+  <rom base="BMWM5.2.1BASE">
+    <!-- In this ROM specific section define only the attributes missing or that need
+     to be changed compared to the common table data and axis attributes in the BASE.
+     This will typically be the storageaddress and sometimes the size entries. -->
+    <romid>
+      <internalidaddress>3CF2</internalidaddress>
+      <internalidstring>40</internalidstring>
+      <xmlid>40</xmlid>
+      <ecuid>0261203667</ecuid>
+      <year>1996-2000</year>
+      <market>EURO</market>
+      <make>BMW</make>
+      <model>E36 318is</model>
+      <submodel>M5.2.1 (16kb)</submodel>
+      <transmission>MT/AT</transmission>
+      <memmodel></memmodel>
+      <filesize>16kb</filesize>
+    </romid>
+	
+	<table name="Configuration Byte" storageaddress="0x5AD" />
+	
+	<table name="OBD2 Readiness Monitors" storageaddress="0x788" />
+		
+	<table name="Diagnostic Trouble Codes" storageaddress="0x4C8" />
+	<table name="Malfunction Illumination Lamp" storageaddress="0x560" />
+	
+	<table name="Exhaust Gas Recirculation" storageaddress="0x788" />
+	<table name="Oxygen Sensor Heater" storageaddress="0x789" />
+	<table name="Oxygen Sensor" storageaddress="0x78A" />
+	<table name="Secondary Air System" storageaddress="0x78B" />
+	<table name="Evaporative System" storageaddress="0x78C" />
+	<table name="Catalyst" storageaddress="0x78D" />
+	
+	<table name="Ignition Timing - Optimal" storageaddress="0x190D">
+		<table type="X Axis" storageaddress="0x1901" />
+		<table type="Y Axis" storageaddress="0x18EF" />
+	</table>
+	
+	<table name="Ignition Timing - Warm Engine" storageaddress="0x174D">
+		<table type="X Axis" storageaddress="0x1741" />
+		<table type="Y Axis" storageaddress="0x172F" />
+	</table>	
+	
+	<table name="Injector Dead Time" storageaddress="0x1C5F" />
+
+	<table name="RPM limiter" storageaddress="0x06D0" />
+	<table name="RPM limiter (VSS Error)" storageaddress="0x06D2" />
+
+	<table name="MAF Scaling" storageaddress="0x0ADA" />
+
+	<table name="Engine torque with optimal ignition angle" storageaddress="0x2536">
+		<table type="X Axis" storageaddress="0x252A" />
+		<table type="Y Axis" storageaddress="0x2518" />
+	</table>	
+	
+	<table name="Maximum Knock Retard" storageaddress="0x1BDA" />
+	
+	<table name="Knock Detection Factor" storageaddress="0x1B66">
+		<table type="Y Axis" storageaddress="0x1B26" />
+	</table>	
+	
+
+	
+   </rom>
+  
+</roms>
