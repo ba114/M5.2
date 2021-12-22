@@ -82,10 +82,51 @@ v0
 <!--Config Switches-->  
 	<table type="2D" name="Configuration Byte" category="Control Bits" storagetype="uint8" endian="little" sizey="1" userlevel="1">
 		<scaling units="Decimal Value" expression="x" to_byte="x"  format="0" fineincrement="1" coarseincrement="10" />
-			<table type="Static Y Axis" name="Convert from Decimal to Binary. Flip bits as needed. Then convert back to Decimal from Binary" sizey="5">
-				<data>Byte</data>
+			<table type="Static Y Axis" name="Convert from Decimal to Binary. Flip bits as needed. Then convert back to Decimal from Binary" sizey="1">
+				<data>.</data>
 			</table>
 		<description>Unclear on use at this point in time</description>
+	</table>
+	
+
+	<table type="BitwiseSwitch" name="Bit 0" category="Configurations">
+		<bit position ="0" name="Enabled"/>
+		<description>Bit 0 switch.</description>
+	</table>
+
+	<table type="BitwiseSwitch" name="Bit 1" category="Configurations">
+		<bit position ="1" name="Enabled"/>
+		<description>Bit 1 switch.</description>
+	</table>
+
+	<table type="BitwiseSwitch" name="Rear O2 Sensor" category="Configurations">
+		<bit position ="2" name="Rear O2 Enabled"/>
+		<description>This switch enables and disables the rear o2 sensor. Untick to delete rear o2 sensor.</description>
+	</table>
+	
+	<table type="BitwiseSwitch" name="Bit 3" category="Configurations">
+		<bit position ="3" name="Enabled"/>
+		<description>Bit 3 switch.</description>
+	</table>
+	
+	<table type="BitwiseSwitch" name="Bit 4" category="Configurations">
+		<bit position ="4" name="Enabled"/>
+		<description>Bit 4 switch.</description>
+	</table>
+	
+	<table type="BitwiseSwitch" name="Bit 5" category="Configurations">
+		<bit position ="5" name="Enabled"/>
+		<description>Bit 5 switch.</description>
+	</table>
+
+	<table type="BitwiseSwitch" name="Auto/Manual" category="Configurations">
+		<bit position ="6" name="Auto"/>
+		<description>If enabled, the ecu will run on Auto maps where applicable.</description>
+	</table>
+	
+	<table type="BitwiseSwitch" name="Bit 7" category="Configurations">
+		<bit position ="7" name="Enabled"/>
+		<description>Bit 7 switch.</description>
 	</table>
   
 	<table type="3D" name="OBD2 Readiness Monitors" category="Configurations" storagetype="uint8" endian="little" userlevel="1" sizey="1" sizex="6" >
@@ -101,7 +142,7 @@ v0
 				<data>Evaporative System</data>
 				<data>Catalyst</data>
 			</table>
-		<description>Table for OBD2 Readiness monitors. Requires testing for values to set as ready.</description>
+		<description>Table for OBD2 Readiness monitors. Requires testing for values to set as ready - Probably 00</description>
 	</table>
 	
 <table type="Switch" name="EWS" category="Configurations" sizey="6" userlevel="5">
@@ -146,7 +187,8 @@ v0
 	<table type="3D" name="Diagnostic Trouble Codes" category="DTCs" storagetype="uint8" endian="little"  userlevel="1" sizey="76" sizex="2" >
 		<scaling units="Decimal" expression="x" to_byte="x" format="00" fineincrement="1" coarseincrement="5" />
 			<table type="Static X Axis" name="Byte" sizex="2">
-				<data>DTC Number</data>   
+				<data>DTC Number</data>  
+				<data>DTC String</data>  
 			</table>
 			<table type="Static Y Axis" name="DTC" sizey="76">
 				<data>101 DME Internal RAM</data>
@@ -318,39 +360,79 @@ v0
 	</table>
 
 <!--Timing-->
-	<table type="3D" name="Ignition Timing - Optimal" category="Ignition Timing" storagetype="uint8" endian="little" sizex="12" sizey="16" userlevel="1" >
+	<table type="3D" name="Ignition Timing - Part Load - Warm" category="Ignition Timing" storagetype="uint8" endian="little" sizex="12" sizey="16" userlevel="1" >
 		<scaling units="&deg;BTDC" expression="(x*.75)-48" to_byte="(x+48)/0.75" format="0.00" fineincrement=".1" coarseincrement="1" />
-			<table type="X Axis" name="relative filling" storagetype="uint8" endian="little" logparam="E2" >
-				<scaling units="ms" expression="x*.05" to_byte="x/.05" format="#" fineincrement="1" coarseincrement="10" />
+			<table type="X Axis" name="Load" storagetype="uint8" endian="little" logparam="E2" >
+				<scaling units="ms" expression="x*.05" to_byte="x/.05" format="0.00" fineincrement="1" coarseincrement="10" />
 			</table>
 			<table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="little" logparam="P8">
 				<scaling units="RPM" expression="x*40" to_byte="x/40" format="#" fineincrement="50" coarseincrement="100" />
 			</table>
-		<description>This is the optimal ignition timing map.</description>
+		<description>Zündwinkelkennfeld Motor warm. This is the ignition timing map when the engine has reached operating temp</description>
 	</table>
 
 	<table type="3D" name="Ignition Timing - Warm Engine" category="Ignition Timing" storagetype="uint8" endian="little" sizex="12" sizey="16" userlevel="1" >
 		<scaling units="&deg;BTDC" expression="(x*.75)-45" to_byte="(x+45)/0.75" format="0.00" fineincrement=".1" coarseincrement="1" />
-			<table type="X Axis" name="relative filling" storagetype="uint8" endian="little" logparam="E2" >
-				<scaling units="ms" expression="x*.05" to_byte="x/.05" format="#" fineincrement="1" coarseincrement="10" />
+			<table type="X Axis" name="Load" storagetype="uint8" endian="little" logparam="E2" >
+				<scaling units="ms" expression="x*.05" to_byte="x/.05" format="0.00" fineincrement="1" coarseincrement="10" />
 			</table>
 			<table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="little" logparam="P8">
 				<scaling units="RPM" expression="x*40" to_byte="x/40" format="#" fineincrement="50" coarseincrement="100" />
 			</table>
-		<description>This is the ignition timing map when the engine has reached operating temp.</description>
+		<description>Zündwinkelkennfeld Motor warm. This is the ignition timing map when the engine has reached operating temp.</description>
+	</table>
+	
+	<table type="3D" name="Ignition Timing - Optimal" category="Ignition Timing" storagetype="uint8" endian="little" sizex="7" sizey="11" userlevel="1" >
+		<scaling units="&deg;BTDC" expression="(x*.75)-45" to_byte="(x+45)/0.75" format="0.00" fineincrement=".1" coarseincrement="1" />
+			<table type="X Axis" name="Load" storagetype="uint8" endian="little" logparam="E2" >
+				<scaling units="ms" expression="x*.05" to_byte="x/.05" format="0.00" fineincrement="1" coarseincrement="10" />
+			</table>
+			<table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="little" logparam="P8">
+				<scaling units="RPM" expression="x*40" to_byte="x/40" format="#" fineincrement="50" coarseincrement="100" />
+			</table>
+		<description>optimaler Zündwinkel. This is the optimum ignition timing. Used for torque calculations.</description>
 	</table>
 
 <!--Fuel-->
 	<table type="2D" name="Injector Dead Time" category="Fuel" storagetype="uint8" endian="little" sizey="5" userlevel="1">
 		<scaling units="Decimal Value" expression="x*0.012000" to_byte="x/0.012000"  format="0.000" fineincrement="0.001" coarseincrement="0.1" />
-			<table type="Static Y Axis" name="Volts" sizey="5">
-				<data>7.07</data>		
-				<data>9.53</data>		
-				<data>11.98</data>		
-				<data>14.05</data>		
-				<data>16.03</data>
+			<table type="X Axis" name="Voltage" storagetype="uint8" endian="little">
+				<scaling units="V" expression="x*0.094309" to_byte="x/0.094309" format="0.00" fineincrement="1" coarseincrement="10" />
 			</table>
 		<description>Injector Dead Time settings</description>
+	</table>
+	
+	<table type="3D" name="Fuel Scalar - Idle" category="Fuel" storagetype="uint8" endian="little" sizex="3" sizey="6" userlevel="1" >
+		<scaling units="%" expression="((x*0.007813)-1)*100" to_byte="((x/100)+1)/0.007813" format="0.000" fineincrement=".1" coarseincrement="1" />
+			<table type="X Axis" name="Load" storagetype="uint8" endian="little" logparam="E2" >
+				<scaling units="ms" expression="x*.05" to_byte="x/.05" format="0.00" fineincrement="1" coarseincrement="10" />
+			</table>
+			<table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="little" logparam="P8">
+				<scaling units="RPM" expression="x*40" to_byte="x/40" format="#" fineincrement="50" coarseincrement="100" />
+			</table>
+		<description>This is the part load fuel scalar. Increase the values to make richer, decrease to lean out.</description>
+	</table>
+	
+	<table type="3D" name="Fuel Scalar - Part Throttle - 1" category="Fuel" storagetype="uint8" endian="little" sizex="12" sizey="16" userlevel="1" >
+		<scaling units="%" expression="((x*0.007813)-1)*100" to_byte="((x/100)+1)/0.007813" format="0.000" fineincrement=".1" coarseincrement="1" />
+			<table type="X Axis" name="Load" storagetype="uint8" endian="little" logparam="E2" >
+				<scaling units="ms" expression="x*.05" to_byte="x/.05" format="0.00" fineincrement="1" coarseincrement="10" />
+			</table>
+			<table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="little" logparam="P8">
+				<scaling units="RPM" expression="x*40" to_byte="x/40" format="#" fineincrement="50" coarseincrement="100" />
+			</table>
+		<description>This is the part load fuel scalar. Increase the values to make richer, decrease to lean out.</description>
+	</table>
+	
+	<table type="3D" name="Fuel Scalar - Part Throttle - 2" category="Fuel" storagetype="uint8" endian="little" sizex="12" sizey="16" userlevel="1" >
+		<scaling units="%" expression="((x*0.007813)-1)*100" to_byte="((x/100)+1)/0.007813" format="0.000" fineincrement=".1" coarseincrement="1" />
+			<table type="X Axis" name="Load" storagetype="uint8" endian="little" logparam="E2" >
+				<scaling units="ms" expression="x*.05" to_byte="x/.05" format="0.00" fineincrement="1" coarseincrement="10" />
+			</table>
+			<table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="little" logparam="P8">
+				<scaling units="RPM" expression="x*40" to_byte="x/40" format="#" fineincrement="50" coarseincrement="100" />
+			</table>
+		<description>This is the part load fuel scalar. Increase the values to make richer, decrease to lean out.</description>
 	</table>
 
 <!--Limiters-->
@@ -374,19 +456,65 @@ v0
 	<table type="3D" name="MAF Scaling" category="Sensors Scaling" storagetype="uint16" endian="little" sizex="16" sizey="16" userlevel="2" >
 	   <scaling units="kg/hr" expression="x*0.212" to_byte="x/.212"  format="0.00" fineincrement=".01" coarseincrement=".1" />
 			<table type="Static X Axis" name="0 to 5 Volts - " sizey="16">
-				<data></data>
-		   </table>
-		   <table type="Static Y Axis" name="0 to 5 Volts" sizey="16">
-				<data></data>
-		   </table>
+				<data>0.00</data>
+				<data>0.02</data>
+				<data>0.04</data>
+				<data>0.06</data>
+				<data>0.08</data>
+				<data>0.10</data>
+				<data>0.12</data>
+				<data>0.14</data>
+				<data>0.16</data>
+				<data>0.18</data>
+				<data>0.20</data>
+				<data>0.22</data>
+				<data>0.24</data>
+				<data>0.26</data>
+				<data>0.28</data>
+				<data>0.30</data>
+			</table>
+			<table type="Static Y Axis" name="0 to 5 Volts" sizey="16">
+				<data>0.00</data>
+				<data>0.32</data>
+				<data>0.64</data>
+				<data>0.96</data>
+				<data>1.26</data>
+				<data>1.58</data>
+				<data>1.90</data>
+				<data>2.20</data>
+				<data>2.52</data>
+				<data>2.82</data>
+				<data>3.14</data>
+				<data>3.46</data>
+				<data>3.78</data>
+				<data>4.08</data>
+				<data>4.40</data>
+				<data>4.70</data>
+			</table>
 		<description>This is the scaling for the MAF sensor just in a convenient 16x16 format for easier editing.</description>
 	</table>
+	
+	<table type="2D" name="ECT Sensor Scaling" category="Sensors Scaling" storagetype="uint8" endian="little" sizex="15" userlevel="1">
+		<scaling name="Metric" units="°C" expression="x*.75-48" to_byte="(x+48)/.75" format="0.00" fineincrement="2" coarseincrement="10"/>
+			<table type="X Axis" name="Voltage" storagetype="uint8" endian="little">
+				<scaling units="Volts" expression="x*0.019608" to_byte="x/0.019608" format="0.00" fineincrement=".01" coarseincrement=".1"/>
+			</table>
+		<description>This is the scaling for the Engine Coolant Temperature sensor.</description>
+    </table>
+	
+	<table type="2D" name="IAT Sensor Scaling" category="Sensors Scaling" storagetype="uint8" endian="little" sizex="15" userlevel="1">
+		<scaling name="Metric" units="°C" expression="x*.75-48" to_byte="(x+48)/.75" format="0.00" fineincrement="2" coarseincrement="10"/>
+			<table type="Y Axis" name="Voltage" storagetype="uint8" endian="little">
+				<scaling units="Volts" expression="x*0.019608" to_byte="x/0.019608" format="0.00" fineincrement=".01" coarseincrement=".1"/>
+			</table>
+		<description>This is the scaling for the Engine Coolant Temperature sensor.</description>
+    </table>
 
 <!--Torque-->
-	<table type="3D" name="Engine torque with optimal ignition angle" category="Torque" storagetype="uint8" endian="little" sizex="12" sizey="16" userlevel="1" >
+	<table type="3D" name="Engine torque at optimal ignition angle" category="Torque" storagetype="uint8" endian="little" sizex="12" sizey="16" userlevel="1" >
 		<scaling units="Nm" expression="x*2" to_byte="x/2" format="0.00" fineincrement=".1" coarseincrement="1" />
-			<table type="X Axis" name="relative filling" storagetype="uint8" endian="little" logparam="E2" >
-				<scaling units="ms" expression="x*.05" to_byte="x/.05" format="#" fineincrement="1" coarseincrement="10" />
+			<table type="X Axis" name="Load" storagetype="uint8" endian="little" logparam="E2" >
+				<scaling units="ms" expression="x*.05" to_byte="x/.05" format="0.00" fineincrement="1" coarseincrement="10" />
 			</table>
 			<table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="little" logparam="P8">
 				<scaling units="RPM" expression="x*40" to_byte="x/40" format="#" fineincrement="50" coarseincrement="100" />
@@ -395,19 +523,19 @@ v0
 	</table>
  
 <!--Knock--> 
+
+	<table type="2D" name="Minimum Knock Retard" category="Knock" storagetype="uint8" endian="little" sizey="10" userlevel="1">
+		<scaling units="&deg;BTDC" expression="x*-0.750000" to_byte="x/-0.750000"  format="0.000" fineincrement="0.001" coarseincrement="0.1" />
+			<table type="X Axis" name="Engine Speed" storagetype="uint8" endian="little">
+				<scaling units="RPM" expression="x*40" to_byte="x/40" format="#" fineincrement=".01" coarseincrement=".1"/>
+			</table>
+		<description>Minimum amount of ignition retard when knock is experienced</description>
+	</table>
+
 	<table type="2D" name="Maximum Knock Retard" category="Knock" storagetype="uint8" endian="little" sizey="10" userlevel="1">
 		<scaling units="&deg;BTDC" expression="x*-0.750000" to_byte="x/-0.750000"  format="0.000" fineincrement="0.001" coarseincrement="0.1" />
-			<table type="Static Y Axis" name="Volts" sizey="10">
-				<data>720</data>		
-				<data>1360</data>		
-				<data>1600</data>		
-				<data>2480</data>		
-				<data>3600</data>
-				<data>4000</data>		
-				<data>4600</data>		
-				<data>5200</data>		
-				<data>6000</data>		
-				<data>6400</data>
+			<table type="X Axis" name="Engine Speed" storagetype="uint8" endian="little">
+				<scaling units="RPM" expression="x*40" to_byte="x/40" format="#" fineincrement=".01" coarseincrement=".1"/>
 			</table>
 		<description>Maximum amount of ignition retard when knock is experienced</description>
 	</table>
@@ -447,8 +575,19 @@ v0
       <memmodel></memmodel>
       <filesize>16kb</filesize>
     </romid>
-	
+
+<!--Config Switches-->
 	<table name="Configuration Byte" storageaddress="0x5AD" />
+
+	<table name="Bit 0" addressbit="0" storageaddress="0x5AD"/>
+	<table name="Bit 1" addressbit="1" storageaddress="0x5AD"/>	
+	<table name="Rear O2 Sensor" addressbit="2" storageaddress="0x5AD"/>
+	<table name="Bit 3" addressbit="3" storageaddress="0x5AD"/>
+	<table name="Bit 4" addressbit="4" storageaddress="0x5AD"/>	
+	<table name="Bit 5" addressbit="5" storageaddress="0x5AD"/>
+	<table name="Auto/Manual" addressbit="6" storageaddress="0x5AD"/>
+	<table name="Bit 7" addressbit="7" storageaddress="0x5AD"/>
+	
 	
 	<table name="OBD2 Readiness Monitors" storageaddress="0x788" />
 	
@@ -463,33 +602,211 @@ v0
 	<table name="Secondary Air System" storageaddress="0x78B" />
 	<table name="Evaporative System" storageaddress="0x78C" />
 	<table name="Catalyst" storageaddress="0x78D" />
-	
-	<table name="Ignition Timing - Optimal" storageaddress="0x190D">
-		<table type="X Axis" storageaddress="0x1901" />
-		<table type="Y Axis" storageaddress="0x18EF" />
+
+<!--Timing-->	
+	<table name="Ignition Timing - Warm Engine" storageaddress="0x190D">
+		<table type="X Axis" storageaddress="0x1901" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x18EF" dataLayout="bosch_subtract"/>
 	</table>
 	
-	<table name="Ignition Timing - Warm Engine" storageaddress="0x174D">
-		<table type="X Axis" storageaddress="0x1741" />
-		<table type="Y Axis" storageaddress="0x172F" />
+	<table name="Ignition Timing - Part Load - Warm" storageaddress="0x174D">
+		<table type="X Axis" storageaddress="0x1741" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x172F" dataLayout="bosch_subtract"/>
 	</table>	
 	
-	<table name="Injector Dead Time" storageaddress="0x1C5F" />
+	<table name="Ignition Timing - Optimal" storageaddress="0x260C">
+		<table type="X Axis" storageaddress="0x2605" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x25F8" dataLayout="bosch_subtract"/>
+	</table>	
+		
+	
+	
+<!--Fuel-->	
+	<table name="Injector Dead Time" storageaddress="0x1C5F">
+		<table type="Y Axis" storageaddress="0x1C5A" dataLayout="bosch_subtract"/>
+	</table>
+	
+	<table name="Fuel Scalar - Idle" storageaddress="11AC" >
+		<table type="X Axis" storageaddress="0x11A8" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x11A0" dataLayout="bosch_subtract"/>
+	</table>
+	
+	<table  name="Fuel Scalar - Part Throttle - 1" storageaddress="11EE" >
+		<table type="X Axis" storageaddress="0x11E2" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x11D0" dataLayout="bosch_subtract"/>
+	</table>
+
+	<table  name="Fuel Scalar - Part Throttle - 2" storageaddress="12CE" >
+		<table type="X Axis" storageaddress="0x12B0" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x12C2" dataLayout="bosch_subtract"/>
+	</table>
+	
+
+<!--Limiters-->
 
 	<table name="RPM limiter" storageaddress="0x06D0" />
 	<table name="RPM limiter (VSS Error)" storageaddress="0x06D2" />
 
+<!--Sensor Scaling-->
 	<table name="MAF Scaling" storageaddress="0x0ADA" />
-
-	<table name="Engine torque with optimal ignition angle" storageaddress="0x2536">
-		<table type="X Axis" storageaddress="0x252A" />
-		<table type="Y Axis" storageaddress="0x2518" />
+	
+	<table name="ECT Sensor Scaling" storageaddress="0xF35">
+		<table type="Y Axis" storageaddress="0xF26" dataLayout="bosch_subtract"/>
 	</table>	
 	
-	<table name="Maximum Knock Retard" storageaddress="0x1BDA" />
+	<table name="IAT Sensor Scaling" storageaddress="0xF15">
+		<table type="Y Axis" storageaddress="0xF06" dataLayout="bosch_subtract"/>
+	</table>	
 	
+
+
+<!--Torque-->
+	<table name="Engine torque at optimal ignition angle" storageaddress="0x2536">
+		<table type="X Axis" storageaddress="0x252A" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x2518" dataLayout="bosch_subtract"/>
+	</table>	
+	
+	
+<!--Knock-->
+
+	<table name="Minimum Knock Retard" storageaddress="0x1BE4" >
+		<table type="Y Axis" storageaddress="0x1BA8" dataLayout="bosch_subtract"/>	
+	</table>
+	
+	<table name="Maximum Knock Retard" storageaddress="0x1BDA" >
+		<table type="Y Axis" storageaddress="0x1BA8" dataLayout="bosch_subtract"/>	
+	</table>	
+		
 	<table name="Knock Detection Factor" storageaddress="0x1B66">
-		<table type="Y Axis" storageaddress="0x1B26" />
+		<table type="Y Axis" storageaddress="0x1B26" dataLayout="bosch_subtract"/>
+	</table>	
+	
+
+	
+   </rom>
+   
+     <rom base="BMWM5.2.1BASE">
+    <!-- In this ROM specific section define only the attributes missing or that need
+     to be changed compared to the common table data and axis attributes in the BASE.
+     This will typically be the storageaddress and sometimes the size entries. -->
+    <romid>
+      <internalidaddress>3CF2</internalidaddress>
+      <internalidstring>23</internalidstring>
+      <xmlid>23</xmlid>
+      <ecuid>0261203668</ecuid>
+      <year>1996-2000</year>
+      <market>USA</market>
+      <make>BMW</make>
+      <model>E36 318is</model>
+      <submodel>M5.2.1 (16kb)</submodel>
+      <transmission>MT/AT</transmission>
+      <memmodel></memmodel>
+      <filesize>16kb</filesize>
+    </romid>
+
+<!--Config Switches-->
+	<table name="Configuration Byte" storageaddress="0x5AD" />
+
+	<table name="Bit 0" addressbit="0" storageaddress="0x5AD"/>
+	<table name="Bit 1" addressbit="1" storageaddress="0x5AD"/>	
+	<table name="Rear O2 Sensor" addressbit="2" storageaddress="0x5AD"/>
+	<table name="Bit 3" addressbit="3" storageaddress="0x5AD"/>
+	<table name="Bit 4" addressbit="4" storageaddress="0x5AD"/>	
+	<table name="Bit 5" addressbit="5" storageaddress="0x5AD"/>
+	<table name="Auto/Manual" addressbit="6" storageaddress="0x5AD"/>
+	<table name="Bit 7" addressbit="7" storageaddress="0x5AD"/>
+	
+	
+	<table name="OBD2 Readiness Monitors" storageaddress="0x788" />
+	
+	<table name="EWS" storageaddress="0x3D3B" />
+		
+	<table name="Diagnostic Trouble Codes" storageaddress="0x4C8" />
+	<table name="Malfunction Illumination Lamp" storageaddress="0x560" />
+	
+	<table name="Exhaust Gas Recirculation" storageaddress="0x788" />
+	<table name="Oxygen Sensor Heater" storageaddress="0x789" />
+	<table name="Oxygen Sensor" storageaddress="0x78A" />
+	<table name="Secondary Air System" storageaddress="0x78B" />
+	<table name="Evaporative System" storageaddress="0x78C" />
+	<table name="Catalyst" storageaddress="0x78D" />
+
+<!--Timing-->	
+	<table name="Ignition Timing - Warm Engine" storageaddress="0x190D">
+		<table type="X Axis" storageaddress="0x1901" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x18EF" dataLayout="bosch_subtract"/>
+	</table>
+	
+	<table name="Ignition Timing - Part Load - Warm" storageaddress="0x174D">
+		<table type="X Axis" storageaddress="0x1741" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x172F" dataLayout="bosch_subtract"/>
+	</table>	
+	
+	<table name="Ignition Timing - Optimal" storageaddress="0x260C">
+		<table type="X Axis" storageaddress="0x2605" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x25F8" dataLayout="bosch_subtract"/>
+	</table>	
+		
+	
+	
+<!--Fuel-->	
+	<table name="Injector Dead Time" storageaddress="0x1C5F">
+		<table type="Y Axis" storageaddress="0x1C5A" dataLayout="bosch_subtract"/>
+	</table>
+	
+	<table name="Fuel Scalar - Idle" storageaddress="11AC" >
+		<table type="X Axis" storageaddress="0x11A8" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x11A0" dataLayout="bosch_subtract"/>
+	</table>
+	
+	<table  name="Fuel Scalar - Part Throttle - 1" storageaddress="11EE" >
+		<table type="X Axis" storageaddress="0x11E2" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x11D0" dataLayout="bosch_subtract"/>
+	</table>
+
+	<table  name="Fuel Scalar - Part Throttle - 2" storageaddress="12CE" >
+		<table type="X Axis" storageaddress="0x12B0" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x12C2" dataLayout="bosch_subtract"/>
+	</table>
+	
+
+<!--Limiters-->
+
+	<table name="RPM limiter" storageaddress="0x06D0" />
+	<table name="RPM limiter (VSS Error)" storageaddress="0x06D2" />
+
+<!--Sensor Scaling-->
+	<table name="MAF Scaling" storageaddress="0x0ADA" />
+	
+	<table name="ECT Sensor Scaling" storageaddress="0xF35">
+		<table type="Y Axis" storageaddress="0xF26" dataLayout="bosch_subtract"/>
+	</table>	
+	
+	<table name="IAT Sensor Scaling" storageaddress="0xF15">
+		<table type="Y Axis" storageaddress="0xF06" dataLayout="bosch_subtract"/>
+	</table>	
+	
+
+
+<!--Torque-->
+	<table name="Engine torque at optimal ignition angle" storageaddress="0x2536">
+		<table type="X Axis" storageaddress="0x252A" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x2518" dataLayout="bosch_subtract"/>
+	</table>	
+	
+	
+<!--Knock-->
+
+	<table name="Minimum Knock Retard" storageaddress="0x1BE4" >
+		<table type="Y Axis" storageaddress="0x1BA8" dataLayout="bosch_subtract"/>	
+	</table>
+	
+	<table name="Maximum Knock Retard" storageaddress="0x1BDA" >
+		<table type="Y Axis" storageaddress="0x1BA8" dataLayout="bosch_subtract"/>	
+	</table>	
+		
+	<table name="Knock Detection Factor" storageaddress="0x1B66">
+		<table type="Y Axis" storageaddress="0x1B26" dataLayout="bosch_subtract"/>
 	</table>	
 	
 
