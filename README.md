@@ -1,6 +1,6 @@
 ECU definitions for BMW E36 318i with the M44 engine.
 
-This is the development repository for identifying new maps in the Bosch M5.2.1 DME utilised in the E36 318i.
+This is the development repository for identifying new maps in the Bosch M5.2 DME utilised in the E36 318i.
 
 The processor used in this DME is and Intel 87C196KN which is a CMOS MCS® 96 Microcontroller.
 For disassembly in IDA, the processor should be set to Intel 80196 (https://en.wikipedia.org/wiki/Intel_MCS-96)
