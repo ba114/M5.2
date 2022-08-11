@@ -61,13 +61,13 @@
   <rom>
     <!--
 v0
-	- draft of Bosch M5.2.1
+	- draft of Bosch M5.2
 
 	In this BASE section define all the common table data and axis attributes.
     Leave out the ROM specific addresses.
 -->
   <romid>
-   <xmlid>BMWM5.2.1BASE</xmlid>
+   <xmlid>BMWM5.2BASE</xmlid>
    <internalidaddress>0000</internalidaddress>
    <internalidstring>0000</internalidstring>
    <ecuid>0000000000</ecuid>
@@ -75,7 +75,7 @@ v0
    <market>EURO</market>
    <make>BMW</make>
    <model>E36 318is</model>
-   <submodel>M5.2.1</submodel>
+   <submodel>M5.2</submodel>
    <transmission>MT/AT</transmission>
   </romid>
 
@@ -495,7 +495,7 @@ v0
 	</table>
 	
 	<table type="2D" name="ECT Sensor Scaling" category="Sensors Scaling" storagetype="uint8" endian="little" sizex="15" userlevel="1">
-		<scaling name="Metric" units="°C" expression="x*.75-48" to_byte="(x+48)/.75" format="0.00" fineincrement="2" coarseincrement="10"/>
+		<scaling units="°C" expression="x*.75-48" to_byte="(x+48)/.75" format="0.00" fineincrement="2" coarseincrement="10"/>
 			<table type="X Axis" name="Voltage" storagetype="uint8" endian="little">
 				<scaling units="Volts" expression="x*0.019608" to_byte="x/0.019608" format="0.00" fineincrement=".01" coarseincrement=".1"/>
 			</table>
@@ -503,7 +503,7 @@ v0
     </table>
 	
 	<table type="2D" name="IAT Sensor Scaling" category="Sensors Scaling" storagetype="uint8" endian="little" sizex="15" userlevel="1">
-		<scaling name="Metric" units="°C" expression="x*.75-48" to_byte="(x+48)/.75" format="0.00" fineincrement="2" coarseincrement="10"/>
+		<scaling units="°C" expression="x*.75-48" to_byte="(x+48)/.75" format="0.00" fineincrement="2" coarseincrement="10"/>
 			<table type="Y Axis" name="Voltage" storagetype="uint8" endian="little">
 				<scaling units="Volts" expression="x*0.019608" to_byte="x/0.019608" format="0.00" fineincrement=".01" coarseincrement=".1"/>
 			</table>
@@ -557,7 +557,7 @@ v0
 
 
  </rom>
-  <rom base="BMWM5.2.1BASE">
+  <rom base="BMWM5.2BASE">
     <!-- In this ROM specific section define only the attributes missing or that need
      to be changed compared to the common table data and axis attributes in the BASE.
      This will typically be the storageaddress and sometimes the size entries. -->
@@ -619,7 +619,6 @@ v0
 		<table type="Y Axis" storageaddress="0x25F8" dataLayout="bosch_subtract"/>
 	</table>	
 		
-	
 	
 <!--Fuel-->	
 	<table name="Injector Dead Time" storageaddress="0x1C5F">
@@ -685,7 +684,7 @@ v0
 	
    </rom>
    
-     <rom base="BMWM5.2.1BASE">
+     <rom base="BMWM5.2BASE">
     <!-- In this ROM specific section define only the attributes missing or that need
      to be changed compared to the common table data and axis attributes in the BASE.
      This will typically be the storageaddress and sometimes the size entries. -->
