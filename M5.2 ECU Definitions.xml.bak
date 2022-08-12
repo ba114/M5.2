@@ -361,7 +361,7 @@ v0
 
 <!--Timing-->
 	<table type="3D" name="Ignition Timing - Part Load - Warm" category="Ignition Timing" storagetype="uint8" endian="little" sizex="12" sizey="16" userlevel="1" >
-		<scaling units="&deg;BTDC" expression="(x*.75)-48" to_byte="(x+48)/0.75" format="0.00" fineincrement=".1" coarseincrement="1" />
+		<scaling units="&deg;BTDC" expression="(x*.75)-45" to_byte="(x+45)/0.75" format="0.00" fineincrement=".1" coarseincrement="1" />
 			<table type="X Axis" name="Load" storagetype="uint8" endian="little" logparam="E2" >
 				<scaling units="ms" expression="x*.05" to_byte="x/.05" format="0.00" fineincrement="1" coarseincrement="10" />
 			</table>
@@ -541,7 +541,7 @@ v0
 	</table>
 
 	<table type="3D" name="Knock Detection Factor" category="Knock" storagetype="uint8" endian="little" sizex="4" sizey="16" userlevel="1" >
-		<scaling units="Nm" expression="x*0.015625" to_byte="x/0.015625" format="0.00" fineincrement=".1" coarseincrement="1" />
+		<scaling units="-" expression="x*0.015625" to_byte="x/0.015625" format="0.00" fineincrement=".1" coarseincrement="1" />
 			<table type="Static X Axis" name="Cylinder" sizex="4">
 				<data>Cylinder 1</data>		
 				<data>Cylinder 2</data>		
