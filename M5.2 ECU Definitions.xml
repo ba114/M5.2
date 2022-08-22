@@ -360,7 +360,7 @@ v0
 	</table>
 
 <!--Timing-->
-	<table type="3D" name="Ignition Timing - Part Load - Warm" category="Ignition Timing" storagetype="uint8" endian="little" sizex="12" sizey="16" userlevel="1" >
+	<table type="3D" name="Ignition Timing - Part Load - Variant 1" category="Ignition Timing" storagetype="uint8" endian="little" sizex="12" sizey="16" userlevel="1" >
 		<scaling units="&deg;BTDC" expression="(x*.75)-45" to_byte="(x+45)/0.75" format="0.00" fineincrement=".1" coarseincrement="1" />
 			<table type="X Axis" name="Load" storagetype="uint8" endian="little" logparam="E2" >
 				<scaling units="ms" expression="x*.05" to_byte="x/.05" format="0.00" fineincrement="1" coarseincrement="10" />
@@ -368,10 +368,32 @@ v0
 			<table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="little" logparam="P8">
 				<scaling units="RPM" expression="x*40" to_byte="x/40" format="#" fineincrement="50" coarseincrement="100" />
 			</table>
-		<description>Zündwinkelkennfeld Motor warm. This is the ignition timing map when the engine has reached operating temp</description>
+		<description>This is the part load ignition timing map</description>
+	</table>
+	
+	<table type="3D" name="Ignition Timing - Part Load - Variant 2" category="Ignition Timing" storagetype="uint8" endian="little" sizex="12" sizey="16" userlevel="1" >
+		<scaling units="&deg;BTDC" expression="(x*.75)-45" to_byte="(x+45)/0.75" format="0.00" fineincrement=".1" coarseincrement="1" />
+			<table type="X Axis" name="Load" storagetype="uint8" endian="little" logparam="E2" >
+				<scaling units="ms" expression="x*.05" to_byte="x/.05" format="0.00" fineincrement="1" coarseincrement="10" />
+			</table>
+			<table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="little" logparam="P8">
+				<scaling units="RPM" expression="x*40" to_byte="x/40" format="#" fineincrement="50" coarseincrement="100" />
+			</table>
+		<description>This is the part load ignition timing map</description>
+	</table>
+	
+	<table type="3D" name="Ignition Timing - Full Load" category="Ignition Timing" storagetype="uint8" endian="little" sizex="4" sizey="16" userlevel="1" >
+		<scaling units="&deg;BTDC" expression="(x*.75)-45" to_byte="(x+45)/0.75" format="0.00" fineincrement=".1" coarseincrement="1" />
+			<table type="X Axis" name="Load" storagetype="uint8" endian="little" logparam="E2" >
+				<scaling units="ms" expression="x*.05" to_byte="x/.05" format="0.00" fineincrement="1" coarseincrement="10" />
+			</table>
+			<table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="little" logparam="P8">
+				<scaling units="RPM" expression="x*40" to_byte="x/40" format="#" fineincrement="50" coarseincrement="100" />
+			</table>
+		<description>This is the ignition timing map at full load</description>
 	</table>
 
-	<table type="3D" name="Ignition Timing - Warm Engine" category="Ignition Timing" storagetype="uint8" endian="little" sizex="12" sizey="16" userlevel="1" >
+	<table type="3D" name="Ignition Timing - Knock Limited - Variant 1" category="Ignition Timing" storagetype="uint8" endian="little" sizex="12" sizey="16" userlevel="1" >
 		<scaling units="&deg;BTDC" expression="(x*.75)-45" to_byte="(x+45)/0.75" format="0.00" fineincrement=".1" coarseincrement="1" />
 			<table type="X Axis" name="Load" storagetype="uint8" endian="little" logparam="E2" >
 				<scaling units="ms" expression="x*.05" to_byte="x/.05" format="0.00" fineincrement="1" coarseincrement="10" />
@@ -379,7 +401,18 @@ v0
 			<table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="little" logparam="P8">
 				<scaling units="RPM" expression="x*40" to_byte="x/40" format="#" fineincrement="50" coarseincrement="100" />
 			</table>
-		<description>Zündwinkelkennfeld Motor warm. This is the ignition timing map when the engine has reached operating temp.</description>
+		<description>Zündwinkelkorrekturkennfeld KS bei Tmot2. This is the ignition timing map when knock limited</description>
+	</table>
+	
+	<table type="3D" name="Ignition Timing - Knock Limited - Variant 2" category="Ignition Timing" storagetype="uint8" endian="little" sizex="12" sizey="16" userlevel="1" >
+		<scaling units="&deg;BTDC" expression="(x*.75)-45" to_byte="(x+45)/0.75" format="0.00" fineincrement=".1" coarseincrement="1" />
+			<table type="X Axis" name="Load" storagetype="uint8" endian="little" logparam="E2" >
+				<scaling units="ms" expression="x*.05" to_byte="x/.05" format="0.00" fineincrement="1" coarseincrement="10" />
+			</table>
+			<table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="little" logparam="P8">
+				<scaling units="RPM" expression="x*40" to_byte="x/40" format="#" fineincrement="50" coarseincrement="100" />
+			</table>
+		<description>Zündwinkelkorrekturkennfeld KS bei Tmot2. This is the ignition timing map when knock limited</description>
 	</table>
 	
 	<table type="3D" name="Ignition Timing - Optimal" category="Ignition Timing" storagetype="uint8" endian="little" sizex="7" sizey="11" userlevel="1" >
@@ -392,6 +425,28 @@ v0
 			</table>
 		<description>optimaler Zündwinkel. This is the optimum ignition timing. Used for torque calculations.</description>
 	</table>
+	
+	<table type="3D" name="Ignition Timing - Base - ECT/IAT Compensation - Nominal" category="Ignition Timing" storagetype="uint8" endian="little" sizex="4" sizey="6" userlevel="1" >
+		<scaling units="&deg;CRK" expression="(x*-.75)" to_byte="x/-0.75" format="0.00" fineincrement=".1" coarseincrement="1" />
+			<table type="X Axis" name="Air Temperature" storagetype="uint8" endian="little" logparam="P11" >
+				<scaling units="&deg;C" expression="x*.75-48" to_byte="(x+48)/.75" format="0.00" fineincrement="1" coarseincrement="10" />
+			</table>
+			<table type="Y Axis" name="Coolant Temperature" storagetype="uint8" endian="little" logparam="P2" >
+				<scaling units="&deg;C" expression="x*.75-48" to_byte="(x+48)/.75" format="0.00" fineincrement="5" coarseincrement="20" />
+			</table>
+		<description>(KFFWK)Faktoren - Kennfeld für KFWK - This is multiplied to the "Ignition Timing - Base - ECT/IAT Compensation - Nominal" table to determine total adjustment to ignition angle based on coolant and air temperature.</description>
+	</table>
+	
+	<table type="3D" name="Ignition Timing - Base - ECT/IAT Compensation - Multiplicative" category="Ignition Timing" storagetype="uint8" endian="little" sizex="5" sizey="12" userlevel="1" >
+		<scaling units="Multiplicative Factor" expression="x*0.00390625" to_byte="x/0.00390625)" format="0.00" fineincrement=".1" coarseincrement="1" />
+			<table type="X Axis" name="Load" storagetype="uint8" endian="little" logparam="E2">
+				<scaling units="ms" expression="x*0.05" to_byte="x/0.05" format="0.00" fineincrement="0.1" coarseincrement="1" />
+			</table>
+			<table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="little" logparam="P8">
+				<scaling units="RPM" expression="x*40" to_byte="x/40" format="#" fineincrement="40" coarseincrement="120" />
+			</table>
+		<description>(KFWK) Zündwinkelkennfeld für Klopfschutzfunktion - This is multiplied to the "Ignition Timing - Base - ECT/IAT Compensation - Multiplicative" table to determine total adjustment to ignition angle based on coolant and air temperature.</description>
+	</table>
 
 <!--Fuel-->
 	<table type="2D" name="Injector Dead Time" category="Fuel" storagetype="uint8" endian="little" sizey="5" userlevel="1">
@@ -402,7 +457,7 @@ v0
 		<description>Injector Dead Time settings</description>
 	</table>
 	
-	<table type="3D" name="Fuel Scalar - Idle" category="Fuel" storagetype="uint8" endian="little" sizex="3" sizey="6" userlevel="1" >
+	<table type="3D" name="Fuel Scalar - Idle" category="Fuel" storagetype="uint8" endian="little" sizex="4" sizey="6" userlevel="1" >
 		<scaling units="%" expression="x*0.007813" to_byte="x/0.007813" format="0.000" fineincrement=".1" coarseincrement="1" />
 			<table type="X Axis" name="Load" storagetype="uint8" endian="little" logparam="E2" >
 				<scaling units="ms" expression="x*.05" to_byte="x/.05" format="0.00" fineincrement="1" coarseincrement="10" />
@@ -433,6 +488,79 @@ v0
 				<scaling units="RPM" expression="x*40" to_byte="x/40" format="#" fineincrement="50" coarseincrement="100" />
 			</table>
 		<description>This is the part load fuel scalar. Increase the values to make richer, decrease to lean out.</description>
+	</table>
+	
+<!--Closed Loop-->
+	<table type="2D" name="Closed Loop - Maximum Load" category="Closed Loop" storagetype="uint8" endian="little" sizex="4" userlevel="1">
+		<scaling units="°ms" expression="x*0.05" to_byte="x/0.05" format="0.00" fineincrement="0.1" coarseincrement="1"/>
+			<table type="X Axis" name="RPM" storagetype="uint8" endian="little">
+				<scaling units="Volts" expression="x*40" to_byte="x/40" format="0" fineincrement="40" coarseincrement="120"/>
+			</table>
+		<description>This map defines the maximum load value to enable closed loop operation. STFT is disabled above this load.</description>
+    </table>
+	
+<!--Alpha-N-->
+	<table type="3D" name="Calculated Load" category="Alpha-N" storagetype="uint8" endian="little" sizex="16" sizey="16" userlevel="1" >
+		<scaling units="ms" expression="x*0.05" to_byte="x/0.05" format="0.00" fineincrement=".1" coarseincrement="1" />
+			<table type="X Axis" name="Throttle Position" storagetype="uint8" endian="little" logparam="E2" >
+				<scaling units="%" expression="x*0.390625" to_byte="x/0.390625" format="0.00" fineincrement="1" coarseincrement="10" />
+			</table>
+			<table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="little" logparam="P8">
+				<scaling units="RPM" expression="x*40" to_byte="x/40" format="#" fineincrement="50" coarseincrement="100" />
+			</table>
+		<description>(KFTLWB) tLw-Kennfeld aus DK-Winkel inkl. Bypasskorrektur. Calculated load when running Alpha-N</description>
+	</table>
+	
+	<table type="2D" name="Alpha-N IAT Compensation" category="Alpha-N" storagetype="uint8" endian="little" sizex="6" userlevel="1">
+		<scaling units="°Multiplier" expression="x*0.0078125" to_byte="x/0.0078125" format="0.00" fineincrement="0.1" coarseincrement="1"/>
+			<table type="X Axis" name="Intake Air Temperature" storagetype="uint8" endian="little">
+				<scaling units="&deg;C" expression="x*0.75-48" to_byte="(x+48)/.75" format="0.00" fineincrement="1" coarseincrement="5"/>
+			</table>
+		<description>This map is a multiplier to the calculated load based on intake air temperature</description>
+    </table>
+	
+<!--Throttle-->
+	<table type="2D" name="Idle Detection" category="Throttle" storagetype="uint8" endian="little" sizey="4" userlevel="1">
+		<scaling units="TPS" expression="x*0.390625" to_byte="x/0.390625" format="0.00" fineincrement=".1" coarseincrement="1"/>
+			<table type="Static Y Axis" name="RPM" sizey="4">
+				<data>800</data>
+				<data>1120</data>
+				<data>1440</data>
+				<data>1760</data>
+			</table>	
+		<description>When this throttle is below this threshold engine will use idle maps if applicable</description>
+   </table>
+
+
+	<table type="2D" name="Full Load Detection" category="Throttle" storagetype="uint8" endian="little" sizey="4" userlevel="1">
+		<scaling units="TPS" expression="x*0.390625" to_byte="x/0.390625" format="0.00" fineincrement=".1" coarseincrement="1"/>
+			<table type="Static Y Axis" name="RPM" sizey="4">
+				<data>800</data>
+				<data>2080</data>
+				<data>3360</data>
+				<data>4640</data>
+			</table>
+		<description>When this threshold is exceeded the engine will use full load maps if applicable</description>
+   </table>
+   
+	<table type="3D" name="Calculated TPS" category="Throttle" storagetype="uint8" endian="little" sizex="6" sizey="6" userlevel="1" >
+		<scaling units="%" expression="x*0.390625" to_byte="x/0.390625" format="0.00" fineincrement=".1" coarseincrement="1" />
+			<table type="X Axis" name="Mass Air Flow" storagetype="uint8" endian="little" >
+				<scaling units="kg/h" expression="x*0.5" to_byte="x/0.5" format="0" fineincrement="1" coarseincrement="10" />
+			</table>
+			<table type="Y Axis" name="Throttle Position" storagetype="uint8" endian="little">
+				<scaling units="RPM" expression="x*0.390625" to_byte="x/0.390625" format="0.00" fineincrement="1" coarseincrement="10" />
+			</table>
+		<description>(KFWDKV) virtual throttle angle from bypass correction</description>
+	</table>
+	
+<!--Deceleration-->	
+	<table type="2D" name="Fuel Restore - RPM" category="Deceleration" storagetype="uint8" endian="little"  userlevel="1" sizey="6" >
+		<scaling units="RPM" expression="x*40" to_byte="x/40" format="0" fineincrement="40" coarseincrement="120" />
+		<table type="Y Axis" name="Coolant Temperature" storagetype="uint8" endian="little" logparam="P2" >
+			<scaling units="&deg;C" expression="x*.75-48" to_byte="(x+48)/.75" format="0.00" fineincrement="1" coarseincrement="10" />
+		</table>
+		<description>ID_N_MIN_PUC__TCO - Below this Engine Speed, fuel injectors are always turned on. To disable fuel cut during deceleration with the Throttle closed, increase this table as high as you want.</description>
 	</table>
 
 <!--Limiters-->
@@ -493,7 +621,16 @@ v0
 			</table>
 		<description>This is the scaling for the MAF sensor just in a convenient 16x16 format for easier editing.</description>
 	</table>
+
+	<table type="2D" name="Maximum MAF - Error Detection" category="Sensors Scaling" storagetype="uint8" endian="little" sizex="6" userlevel="1">
+		<scaling units="°kg/hr" expression="x*0.212" to_byte="x/0.212" format="0.00" fineincrement="10" coarseincrement="50"/>
+			<table type="X Axis" name="RPM" storagetype="uint8" endian="little">
+				<scaling units="Volts" expression="x*40" to_byte="x/40" format="0" fineincrement="40" coarseincrement="120"/>
+			</table>
+		<description>This map defines the maximum MAF value to enable error detection by RPM.</description>
+    </table>
 	
+
 	<table type="2D" name="ECT Sensor Scaling" category="Sensors Scaling" storagetype="uint8" endian="little" sizex="15" userlevel="1">
 		<scaling units="°C" expression="x*.75-48" to_byte="(x+48)/.75" format="0.00" fineincrement="2" coarseincrement="10"/>
 			<table type="X Axis" name="Voltage" storagetype="uint8" endian="little">
@@ -553,6 +690,14 @@ v0
 			</table>
 		<description>Knock detection factor per cylinder</description>
 	</table>
+	
+	<table type="2D" name="Maximum Knock Retard" category="Knock" storagetype="uint8" endian="little" sizey="10" userlevel="1">
+		<scaling units="&deg;BTDC" expression="x*-0.750000" to_byte="x/-0.750000"  format="0.000" fineincrement="0.001" coarseincrement="0.1" />
+			<table type="X Axis" name="Engine Speed" storagetype="uint8" endian="little">
+				<scaling units="RPM" expression="x*40" to_byte="x/40" format="#" fineincrement=".01" coarseincrement=".1"/>
+			</table>
+		<description>Maximum amount of ignition retard when knock is experienced</description>
+	</table>
 
 
 
@@ -604,21 +749,47 @@ v0
 	<table name="Catalyst" storageaddress="0x78D" />
 
 <!--Timing-->	
-	<table name="Ignition Timing - Warm Engine" storageaddress="0x190D">
+	<table name="Ignition Timing - Knock Limited - Variant 1" storageaddress="0x190D">
 		<table type="X Axis" storageaddress="0x1901" dataLayout="bosch_subtract"/>
 		<table type="Y Axis" storageaddress="0x18EF" dataLayout="bosch_subtract"/>
 	</table>
 	
-	<table name="Ignition Timing - Part Load - Warm" storageaddress="0x174D">
+	<table name="Ignition Timing - Knock Limited - Variant 2" storageaddress="0x19ED">
+		<table type="X Axis" storageaddress="0x19E1" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x19CF" dataLayout="bosch_subtract"/>
+	</table>
+	
+	<table name="Ignition Timing - Part Load - Variant 1" storageaddress="0x174D">
 		<table type="X Axis" storageaddress="0x1741" dataLayout="bosch_subtract"/>
 		<table type="Y Axis" storageaddress="0x172F" dataLayout="bosch_subtract"/>
-	</table>	
+	</table>
+
+	<table name="Ignition Timing - Part Load - Variant 2" storageaddress="0x182D">
+		<table type="X Axis" storageaddress="0x1821" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x180F" dataLayout="bosch_subtract"/>
+	</table>		
+	
+	<table name="Ignition Timing - Full Load" storageaddress="0x15EE">
+		<table type="X Axis" storageaddress="0x15EA" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x15D8" dataLayout="bosch_subtract"/>
+	</table>
 	
 	<table name="Ignition Timing - Optimal" storageaddress="0x260C">
 		<table type="X Axis" storageaddress="0x2605" dataLayout="bosch_subtract"/>
 		<table type="Y Axis" storageaddress="0x25F8" dataLayout="bosch_subtract"/>
 	</table>	
-		
+
+	<table name="Ignition Timing - Base - ECT/IAT Compensation - Multiplicative" storageaddress="0x1AE8">
+		<table type="X Axis" storageaddress="0x1AE3" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x1AD5" dataLayout="bosch_subtract"/>
+	</table>
+	
+	<table name="Ignition Timing - Base - ECT/IAT Compensation - Nominal" storageaddress="0x1ABB">
+		<table type="X Axis" storageaddress="0x1AB7" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x1AAF" dataLayout="bosch_subtract"/>
+	</table>
+
+
 	
 <!--Fuel-->	
 	<table name="Injector Dead Time" storageaddress="0x1C5F">
@@ -636,8 +807,41 @@ v0
 	</table>
 
 	<table  name="Fuel Scalar - Part Throttle - 2" storageaddress="12CE" >
-		<table type="X Axis" storageaddress="0x12B0" dataLayout="bosch_subtract"/>
-		<table type="Y Axis" storageaddress="0x12C2" dataLayout="bosch_subtract"/>
+		<table type="X Axis" storageaddress="0x12C2" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x12B0" dataLayout="bosch_subtract"/>
+	</table>
+	
+	
+<!--Closed Loop-->
+	<table name="Closed Loop - Maximum Load" storageaddress="0x2001">
+		<table type="Y Axis" storageaddress="0x1FFD" dataLayout="bosch_subtract"/>
+	</table>
+	
+<!--Alpha-N-->
+	<table name="Calculated Load" storageaddress="0x22DC">
+		<table type="X Axis" storageaddress="0x22CC" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x22BA" dataLayout="bosch_subtract"/>
+	</table>
+	
+	<table name="Alpha-N IAT Compensation" storageaddress="0x23E4">
+		<table type="Y Axis" storageaddress="0x23DE" dataLayout="bosch_subtract"/>
+	</table>
+	
+<!--Throttle-->
+	<table name="Idle Detection" storageaddress="ACE">
+	</table>
+	
+	<table name="Full Load Detection" storageaddress="AD2">
+	</table>
+	
+	<table name="Calculated TPS" storageaddress="0x2294">
+		<table type="X Axis" storageaddress="0x228E" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x2286" dataLayout="bosch_subtract"/>
+	</table>
+	
+<!--Deceleration-->
+	<table name="Fuel Restore - RPM" storageaddress="14FE">
+		<table type="X Axis" storageaddress="0x14F8" dataLayout="bosch_subtract"/>
 	</table>
 	
 
