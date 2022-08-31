@@ -718,7 +718,6 @@ v0
       <model>E36 318is</model>
       <submodel>M5.2.1 (16kb)</submodel>
       <transmission>MT/AT</transmission>
-	  <author>ba114</author>
       <memmodel></memmodel>
       <filesize>16kb</filesize>
     </romid>
@@ -905,7 +904,6 @@ v0
       <model>E36 318is</model>
       <submodel>M5.2.1 (16kb)</submodel>
       <transmission>MT/AT</transmission>
-	  <author>ba114</author>
       <memmodel></memmodel>
       <filesize>16kb</filesize>
     </romid>
