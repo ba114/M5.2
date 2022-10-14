@@ -42,7 +42,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                 </transport>
             </transports>
             <ecuparams>
-<!-- M5.2.1 Parameters -->
+<!-- M5.2 Parameters -->
                 <ecuparam id="P12" name="Mass Air Flow" desc="P12-Mass Airflow" group="0x0B" subgroup="0x03" groupsize="55" target="1">
                     <ecu id="1438877,1438878,7501733">
                         <address>0x00</address>

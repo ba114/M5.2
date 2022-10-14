@@ -44,7 +44,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
             <ecuparams>
 <!-- M5.2 Parameters -->
                 <ecuparam id="P12" name="Mass Air Flow" desc="P12-Mass Airflow" group="0x0B" subgroup="0x03" groupsize="55" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address>0x00</address>
                     </ecu>
                     <conversions>
@@ -53,7 +53,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                     </conversions>
                 </ecuparam>
 				<ecuparam id="P8" name="Engine Speed" desc="P8-(STATUS_MOTORDREHZAHL)" group="0x0B" subgroup="0x03" groupsize="55" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address>0x12</address>
                     </ecu>
                     <conversions>
@@ -61,7 +61,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                     </conversions>
                 </ecuparam>
                 <ecuparam id="P9" name="Vehicle Speed" desc="P9-(STATUS_GESCHWINDIGKEIT)" group="0x0B" subgroup="0x03" groupsize="55" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address>0x1A</address>
                     </ecu>
                     <conversions>
@@ -69,7 +69,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                     </conversions>
                 </ecuparam>
                 <ecuparam id="P13" name="Throttle Position" desc="P13-(STATUS_DROSSELKLAPPEN)" group="0x0B" subgroup="0x03" groupsize="55" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address>0x13</address>
                     </ecu>
                     <conversions>
@@ -77,7 +77,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                     </conversions>
                 </ecuparam>
                 <ecuparam id="E2" name="Engine Load" desc="E2-(STATUS_LAST)" group="0x0B" subgroup="0x03" groupsize="55" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address>0x15</address>
                     </ecu>
                     <conversions>
@@ -85,7 +85,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                     </conversions>
                 </ecuparam>
                 <ecuparam id="P11" name="Intake Air Temperature" desc="P11-(STATUS_AN_LUFTTEMPERATUR)" group="0x0B" subgroup="0x03" groupsize="55" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address>0x16</address>
                     </ecu>
                     <conversions>
@@ -93,7 +93,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                     </conversions>
                 </ecuparam>
                 <ecuparam id="P2" name="Coolant Temperature" desc="P2-(STATUS_MOTORTEMPERATUR)" group="0x0B" subgroup="0x03" groupsize="55" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address>0x17</address>
                     </ecu>
                     <conversions>
@@ -101,7 +101,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                     </conversions>
                 </ecuparam>
                 <ecuparam id="P10" name="Ignition Angle" desc="P10-(STATUS_ZUENDWINKEL)" group="0x0B" subgroup="0x03" groupsize="55" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address>0x14</address>
                     </ecu>
                     <conversions>
@@ -109,7 +109,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                     </conversions>
                 </ecuparam>
                 <ecuparam id="P21" name="Fuel Injector Pulse Width" desc="P21-(STATUS_EINSPRITZZEIT)" group="0x0B" subgroup="0x03" groupsize="55" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address>0x04</address>
                     </ecu>
                     <conversions>
@@ -117,7 +117,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                     </conversions>
                 </ecuparam>
                 <ecuparam id="E9" name="Idle Air Control Valve" desc="E9-(STATUS_LL_REGLER)" group="0x0B" subgroup="0x03" groupsize="55" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address>0x02</address>
                     </ecu>
                     <conversions>
@@ -125,7 +125,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                     </conversions>
                 </ecuparam>
                 <ecuparam id="P17" name="Battery Voltage" desc="P17-Battery Voltage" group="0x0B" subgroup="0x03" groupsize="55" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address>0x1D</address>
                     </ecu>
                     <conversions>
@@ -133,7 +133,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                     </conversions>
                 </ecuparam>
                 <ecuparam id="E13" name="Lambda Integrator - Bank 1" desc="E13-(TI_LAM_1)" group="0x0B" subgroup="0x03" groupsize="55" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address>0x06</address>
                     </ecu>
                     <conversions>
@@ -141,7 +141,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                     </conversions>
                 </ecuparam>
                 <ecuparam id="E14" name="Lambda Integrator - Bank 2" desc="E14-(TI_LAM_2)" group="0x0B" subgroup="0x03" groupsize="55" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address>0x08</address>
                     </ecu>
                     <conversions>
@@ -152,7 +152,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
 <!-- Switches -->
 	<!--Byte 0-->
                 <ecuparam id="S1" name="xSW - Ignition On" desc="S1" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="6">0x00</address>
                     </ecu>
                     <conversions>
@@ -160,7 +160,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                     </conversions>
                 </ecuparam>
                 <ecuparam id="S2" name="xSW - Leak Detection Pump" desc="S2" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="5">0x00</address>
                     </ecu>
                     <conversions>
@@ -168,7 +168,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                     </conversions>
                 </ecuparam>
                 <ecuparam id="S3" name="xSW - Engine Start State" desc="S3" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="4">0x00</address>
                     </ecu>
                     <conversions>
@@ -177,7 +177,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                 </ecuparam>
 	<!--Byte 1-->			
                 <ecuparam id="S0" name="xSW - EWS" desc="S0" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="1">0x01</address>
                     </ecu>
                     <conversions>
@@ -186,7 +186,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                 </ecuparam>
 	<!--Byte 2-->
                 <ecuparam id="S4" name="xSW - VFZ" desc="S4" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="3">0x02</address>
                     </ecu>
                     <conversions>
@@ -194,7 +194,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                     </conversions>
                 </ecuparam>
                 <ecuparam id="S5" name="xSW - Camshaft Sensor" desc="S5" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="1">0x02</address>
                     </ecu>
                     <conversions>
@@ -203,7 +203,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                 </ecuparam>
 	<!--Byte 3-->
                 <ecuparam id="S36" name="xSW - Map Coooling" desc="S36" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="7">0x03</address>
                     </ecu>
                     <conversions>
@@ -211,7 +211,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                     </conversions>
                 </ecuparam>
                 <ecuparam id="S37" name="xSW - Main Relay" desc="S37" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="4">0x03</address>
                     </ecu>
                     <conversions>
@@ -220,7 +220,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                 </ecuparam>
 	<!--Byte 4-->			
                 <ecuparam id="S9" name="xSW - A/C Compressor Relay" desc="S9" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="5">0x04</address>
                     </ecu>
                     <conversions>
@@ -228,7 +228,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                     </conversions>
                 </ecuparam>
                 <ecuparam id="S10" name="xSW - Fuel Pump Relay" desc="S10" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="4">0x04</address>
                     </ecu>
                     <conversions>
@@ -236,7 +236,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                     </conversions>
                 </ecuparam>
                 <ecuparam id="S11" name="xSW - RL Valve" desc="S11" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="2">0x04</address>
                     </ecu>
                     <conversions>
@@ -245,7 +245,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                 </ecuparam>
 	<!--Byte 5-->
                 <ecuparam id="S12" name="xSW - Lambda Heating - Rear O2" desc="S12" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="4">0x05</address>
                     </ecu>
                     <conversions>
@@ -253,7 +253,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                     </conversions>
                 </ecuparam>
                 <ecuparam id="S13" name="xSW - Lambda Heating - Front O2" desc="S13" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="3">0x05</address>
                     </ecu>
                     <conversions>
@@ -263,7 +263,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
 				
 	<!--Byte 11-->
                 <ecuparam id="S14" name="xSW - AT in Drive or Reverse" desc="S14" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="0">0x0B</address>
                     </ecu>
                     <conversions>
@@ -271,7 +271,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                     </conversions>
                 </ecuparam>
                 <ecuparam id="S15" name="xSW - Low Fuel Level" desc="S15" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="1">0x0B</address>
                     </ecu>
                     <conversions>
@@ -279,7 +279,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                     </conversions>
                 </ecuparam>
                 <ecuparam id="S16" name="xSW - A/C Compressor Switch" desc="S16" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="2">0x0B</address>
                     </ecu>
                     <conversions>
@@ -287,7 +287,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                     </conversions>
                 </ecuparam>
                 <ecuparam id="S17" name="xSW - A/C Switch" desc="S17" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="3">0x0B</address>
                     </ecu>
                     <conversions>
@@ -295,7 +295,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                     </conversions>
                 </ecuparam>
                 <ecuparam id="S18" name="xSW - Low Initial Coolant Temp" desc="S18" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="4">0x0B</address>
                     </ecu>
                     <conversions>
@@ -303,7 +303,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                     </conversions>
                 </ecuparam>
                 <ecuparam id="S19" name="xSW - Headlights Switch" desc="S19" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="5">0x0B</address>
                     </ecu>
                     <conversions>
@@ -313,7 +313,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
 	<!--Byte 13-->
 <!--                <ecuparam id="S20" name="Rear Defogger Switch" desc="S20">  Reserved as Logger control switch -->
                 <ecuparam id="S21" name="xSW - Acceleration Enrichment" desc="S21" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="7">0x0D</address>
                     </ecu>
                     <conversions>
@@ -322,7 +322,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                 </ecuparam>
 	<!--Byte 14-->
                 <ecuparam id="S22" name="xSW - Full Load" desc="S22" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="0">0x0E</address>
                     </ecu>
                     <conversions>
@@ -330,7 +330,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                     </conversions>
                 </ecuparam>
                 <ecuparam id="S23" name="xSW - Idle" desc="S23" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="1">0x0E</address>
                     </ecu>
                     <conversions>
@@ -338,7 +338,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                     </conversions>
                 </ecuparam>
                 <ecuparam id="S24" name="xSW - Knock Regulation Ready" desc="S24" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="7">0x0E</address>
                     </ecu>
                     <conversions>
@@ -347,7 +347,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                 </ecuparam>
     <!--Byte 15-->            
 				<ecuparam id="S25" name="xSW - Overrun Fuel Cut" desc="S25" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="1">0x0F</address>
                     </ecu>
                     <conversions>
@@ -357,7 +357,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
 				
 	<!--Byte 17-->
                 <ecuparam id="S26" name="xSW - Warmup Regulation" desc="S26" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="0">0x11</address>
                     </ecu>
                     <conversions>
@@ -366,7 +366,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                 </ecuparam>
 	<!--Byte 18-->
                 <ecuparam id="S27" name="xSW - Lambda Control On - Bank 1" desc="S27" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="2">0x12</address>
                     </ecu>
                     <conversions>
@@ -375,7 +375,7 @@ any damage or injury incurred as a result of these definitions. USE AT YOUR OWN 
                 </ecuparam>
 	<!--Byte 19-->
                 <ecuparam id="S28" name="xSW - Lambda Control On - Bank 2" desc="S28" group="0x0B" subgroup="0x04" groupsize="41" target="1">
-                    <ecu id="1438877,1438878,7501733">
+                    <ecu id="1429924,1429925,1432763,1432764,1438877,1438878,7501733">
                         <address bit="2">0x13</address>
                     </ecu>
                     <conversions>
