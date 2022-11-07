@@ -143,14 +143,9 @@ v0
 				<data>Evaporative System</data>
 				<data>Catalyst</data>
 			</table>
-		<description>Table for OBD2 Readiness monitors. Requires testing for values to set as ready - Probably 00</description>
+		<description>Table for OBD2 Readiness monitors. Requires testing for values to set as ready.</description>
 	</table>
 	
-<table type="Switch" name="EWS" category="Configurations" sizey="6" userlevel="5">
-	<state name="EWS OFF" data="30 30 30 30 30 30" />
-	<state name="EWS ON" data="32 30 33 36 30 36" />
-	<description>Experimental EWS Off.</description>
-</table>	
 
 <!-- The below requires the disabled switch to be confirmed. FF, 00 & 01 do not appear to have any effect
 <table type="Switch" name="Exhaust Gas Recirculation" category="OBD2 Readiness Monitors" sizey="1" >
@@ -736,8 +731,6 @@ v0
 	
 	
 	<table name="OBD2 Readiness Monitors" storageaddress="0x788" />
-	
-	<table name="EWS" storageaddress="0x3D3B" />
 		
 	<table name="Diagnostic Trouble Codes" storageaddress="0x4C8" />
 	<table name="Malfunction Illumination Lamp" storageaddress="0x560" />
@@ -889,6 +882,189 @@ v0
 	
    </rom>
    
+  <rom base="BMWM5.2BASE">
+    <!-- In this ROM specific section define only the attributes missing or that need
+     to be changed compared to the common table data and axis attributes in the BASE.
+     This will typically be the storageaddress and sometimes the size entries. -->
+    <romid>
+      <internalidaddress>3CF2</internalidaddress>
+      <internalidstring>34</internalidstring>
+      <xmlid>34</xmlid>
+      <ecuid>0261203667</ecuid>
+      <year>1996-2000</year>
+      <market>EURO</market>
+      <make>BMW</make>
+      <model>E36 318is</model>
+      <submodel>M5.2.1 (16kb)</submodel>
+      <transmission>MT/AT</transmission>
+      <memmodel></memmodel>
+      <filesize>16kb</filesize>
+    </romid>
+
+<!--Config Switches-->
+	<table name="Configuration Byte" storageaddress="0x5AD" />
+
+	<table name="Bit 0" addressbit="0" storageaddress="0x5AD"/>
+	<table name="Bit 1" addressbit="1" storageaddress="0x5AD"/>	
+	<table name="Rear O2 Sensor" addressbit="2" storageaddress="0x5AD"/>
+	<table name="Bit 3" addressbit="3" storageaddress="0x5AD"/>
+	<table name="Bit 4" addressbit="4" storageaddress="0x5AD"/>	
+	<table name="Bit 5" addressbit="5" storageaddress="0x5AD"/>
+	<table name="Auto/Manual" addressbit="6" storageaddress="0x5AD"/>
+	<table name="Bit 7" addressbit="7" storageaddress="0x5AD"/>
+	
+	
+	<table name="OBD2 Readiness Monitors" storageaddress="0x786" />
+		
+	<table name="Diagnostic Trouble Codes" storageaddress="0x4C8" />
+	<table name="Malfunction Illumination Lamp" storageaddress="0x560" />
+	
+	<table name="Exhaust Gas Recirculation" storageaddress="0x786" />
+	<table name="Oxygen Sensor Heater" storageaddress="0x787" />
+	<table name="Oxygen Sensor" storageaddress="0x788" />
+	<table name="Secondary Air System" storageaddress="0x789" />
+	<table name="Evaporative System" storageaddress="0x78A" />
+	<table name="Catalyst" storageaddress="0x78B" />
+
+<!--Timing-->	
+	<table name="Ignition Timing - Knock Limited - Variant 1" storageaddress="0x190B">
+		<table type="X Axis" storageaddress="0x18FF" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x18ED" dataLayout="bosch_subtract"/>
+	</table>
+	
+	<table name="Ignition Timing - Knock Limited - Variant 2" storageaddress="0x19EB">
+		<table type="X Axis" storageaddress="0x19DF" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x19CD" dataLayout="bosch_subtract"/>
+	</table>
+	
+	<table name="Ignition Timing - Part Load - Variant 1" storageaddress="0x174B">
+		<table type="X Axis" storageaddress="0x173F" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x172D" dataLayout="bosch_subtract"/>
+	</table>
+
+	<table name="Ignition Timing - Part Load - Variant 2" storageaddress="0x182B">
+		<table type="X Axis" storageaddress="0x181F" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x180D" dataLayout="bosch_subtract"/>
+	</table>		
+	
+	<table name="Ignition Timing - Full Load" storageaddress="0x15EC">
+		<table type="X Axis" storageaddress="0x15E8" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x15D6" dataLayout="bosch_subtract"/>
+	</table>
+	
+	<table name="Ignition Timing - Optimal" storageaddress="0x260A">
+		<table type="X Axis" storageaddress="0x2603" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x25F6" dataLayout="bosch_subtract"/>
+	</table>	
+
+	<table name="Ignition Timing - Base - ECT/IAT Compensation - Multiplicative" storageaddress="0x1AE6">
+		<table type="X Axis" storageaddress="0x1AE1" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x1AD3" dataLayout="bosch_subtract"/>
+	</table>
+	
+	<table name="Ignition Timing - Base - ECT/IAT Compensation - Nominal" storageaddress="0x1AB9">
+		<table type="X Axis" storageaddress="0x1AB5" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x1AAD" dataLayout="bosch_subtract"/>
+	</table>
+
+
+	
+<!--Fuel-->	
+	<table name="Injector Dead Time" storageaddress="0x1C5D">
+		<table type="Y Axis" storageaddress="0x1C58" dataLayout="bosch_subtract"/>
+	</table>
+	
+	<table name="Fuel Scalar - Idle" storageaddress="11AA" >
+		<table type="X Axis" storageaddress="0x11A6" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x119E" dataLayout="bosch_subtract"/>
+	</table>
+	
+	<table  name="Fuel Scalar - Part Throttle - 1" storageaddress="11EC" >
+		<table type="X Axis" storageaddress="0x11E0" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x11CE" dataLayout="bosch_subtract"/>
+	</table>
+
+	<table  name="Fuel Scalar - Part Throttle - 2" storageaddress="12CC" >
+		<table type="X Axis" storageaddress="0x12C0" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x12BE" dataLayout="bosch_subtract"/>
+	</table>
+	
+	
+<!--Closed Loop-->
+	<table name="Closed Loop - Maximum Load" storageaddress="0x1FFF">
+		<table type="Y Axis" storageaddress="0x1FFB" dataLayout="bosch_subtract"/>
+	</table>
+	
+<!--Alpha-N-->
+	<table name="Calculated Load" storageaddress="0x22DA">
+		<table type="X Axis" storageaddress="0x22CA" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x22B8" dataLayout="bosch_subtract"/>
+	</table>
+	
+	<table name="Alpha-N IAT Compensation" storageaddress="0x23E2">
+		<table type="Y Axis" storageaddress="0x23DC" dataLayout="bosch_subtract"/>
+	</table>
+	
+<!--Throttle-->
+	<table name="Idle Detection" storageaddress="ACC">
+	</table>
+	
+	<table name="Full Load Detection" storageaddress="AD0">
+	</table>
+	
+	<table name="Calculated TPS" storageaddress="0x2292">
+		<table type="X Axis" storageaddress="0x228C" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x2284" dataLayout="bosch_subtract"/>
+	</table>
+	
+<!--Deceleration-->
+	<table name="Fuel Restore - RPM" storageaddress="14FC">
+		<table type="X Axis" storageaddress="0x14F6" dataLayout="bosch_subtract"/>
+	</table>
+	
+
+<!--Limiters-->
+
+	<table name="RPM limiter" storageaddress="0x06CD" />
+	<table name="RPM limiter (VSS Error)" storageaddress="0x06D0" />
+
+<!--Sensor Scaling-->
+	<table name="MAF Scaling" storageaddress="0x0AD8" />
+	
+	<table name="ECT Sensor Scaling" storageaddress="0xF33">
+		<table type="Y Axis" storageaddress="0xF24" dataLayout="bosch_subtract"/>
+	</table>	
+	
+	<table name="IAT Sensor Scaling" storageaddress="0xF13">
+		<table type="Y Axis" storageaddress="0xF04" dataLayout="bosch_subtract"/>
+	</table>	
+	
+
+
+<!--Torque-->
+	<table name="Engine torque at optimal ignition angle" storageaddress="0x2534">
+		<table type="X Axis" storageaddress="0x2528" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x2516" dataLayout="bosch_subtract"/>
+	</table>	
+	
+	
+<!--Knock-->
+
+	<table name="Minimum Knock Retard" storageaddress="0x1BE2" >
+		<table type="Y Axis" storageaddress="0x1BA6" dataLayout="bosch_subtract"/>	
+	</table>
+	
+	<table name="Maximum Knock Retard" storageaddress="0x1BD8" >
+		<table type="Y Axis" storageaddress="0x1BA6" dataLayout="bosch_subtract"/>	
+	</table>	
+		
+	<table name="Knock Detection Factor" storageaddress="0x1B64">
+		<table type="Y Axis" storageaddress="0x1B24" dataLayout="bosch_subtract"/>
+	</table>	
+	
+	
+   </rom>
+   
      <rom base="BMWM5.2BASE">
     <!-- In this ROM specific section define only the attributes missing or that need
      to be changed compared to the common table data and axis attributes in the BASE.
@@ -1016,5 +1192,6 @@ v0
 
 	
    </rom>
+   
   
 </roms>
