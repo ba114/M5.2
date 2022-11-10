@@ -1168,7 +1168,7 @@ v0
 
 	<table  name="Fuel Scalar - Part Throttle - 2" storageaddress="12CC" >
 		<table type="X Axis" storageaddress="0x12C0" dataLayout="bosch_subtract"/>
-		<table type="Y Axis" storageaddress="0x12BE" dataLayout="bosch_subtract"/>
+		<table type="Y Axis" storageaddress="0x12AE" dataLayout="bosch_subtract"/>
 	</table>
 	
 	
@@ -1207,7 +1207,7 @@ v0
 
 <!--Limiters-->
 
-	<table name="RPM limiter" storageaddress="0x06CD" />
+	<table name="RPM limiter" storageaddress="0x06CE" />
 	<table name="RPM limiter (VSS Error)" storageaddress="0x06D0" />
 
 <!--Sensor Scaling-->
