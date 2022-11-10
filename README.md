@@ -8,7 +8,6 @@ For disassembly in IDA, the processor should be set to Intel 80196 (https://en.w
 This repository will primarily be focussing on:
 ECU: 0261203667
 SW: 40
-
 However SW 34 has been added.
 
 Additionally, definitions have now been created for 0261203668 (USA) DMEs. These are NOT cross compatible. Do not flash a 667 full read onto a 668 DME (or vice versa) as it will not work.
