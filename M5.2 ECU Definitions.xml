@@ -1287,6 +1287,36 @@ v0
 		<table type="Y Axis" storageaddress="0x2284" dataLayout="bosch_subtract"/>
 	</table>
 	
+<!--Idle Speed Target-->
+
+	<table name="Idle Speed - AT in D/R" storageaddress="0x2102">
+		<table type="Y Axis" storageaddress="0x20FC" dataLayout="bosch_subtract"/>
+	</table>	
+
+	<table name="Idle Speed - AT in D/R (A/C on)" storageaddress="0x2110">
+		<table type="Y Axis" storageaddress="0x210A" dataLayout="bosch_subtract"/>
+	</table>	
+
+	<table name="Idle Speed - MT or AT in P/N" storageaddress="0x211E">
+		<table type="Y Axis" storageaddress="0x2118" dataLayout="bosch_subtract"/>
+	</table>	
+	
+	<table name="Idle Speed - Catalyst Heating" storageaddress="0x212C">
+		<table type="Y Axis" storageaddress="0x2126" dataLayout="bosch_subtract"/>
+	</table>	
+
+	<table name="Idle Speed - Unknown A" storageaddress="0x213A">
+		<table type="Y Axis" storageaddress="0x2134" dataLayout="bosch_subtract"/>
+	</table>
+
+	<table name="Idle Speed - Unknown B" storageaddress="0x2148">
+		<table type="Y Axis" storageaddress="0x2142" dataLayout="bosch_subtract"/>
+	</table>
+	
+	<table name="Idle Speed - Unknown C" storageaddress="0x2156">
+		<table type="Y Axis" storageaddress="0x2150" dataLayout="bosch_subtract"/>
+	</table>
+	
 <!--Deceleration-->
 	<table name="Fuel Restore - RPM" storageaddress="14FC">
 		<table type="X Axis" storageaddress="0x14F6" dataLayout="bosch_subtract"/>
